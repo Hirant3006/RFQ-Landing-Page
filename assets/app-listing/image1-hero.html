@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Quoffer App Listing - Image 1: Hero</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html,
+        body {
+            width: 1600px;
+            height: 900px;
+            overflow: hidden;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: linear-gradient(160deg, #FAF9F5 0%, #F3EDE6 35%, #E8DDD4 70%, #D9CFC6 100%);
+            display: flex;
+            align-items: center;
+            padding: 0 90px;
+            position: relative;
+        }
+
+        .bg-blob {
+            position: absolute;
+            border-radius: 50%;
+            pointer-events: none;
+            filter: blur(80px);
+            opacity: 0.4;
+        }
+
+        .bg-blob.b1 {
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(162, 120, 100, 0.3), transparent 70%);
+            top: -200px;
+            right: 100px;
+        }
+
+        .bg-blob.b2 {
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(88, 72, 64, 0.15), transparent 70%);
+            bottom: -100px;
+            left: 200px;
+        }
+
+        .bg-blob.b3 {
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, rgba(191, 156, 134, 0.25), transparent 70%);
+            top: 200px;
+            left: -50px;
+        }
+
+        .grid-pattern {
+            position: absolute;
+            inset: 0;
+            background-image: linear-gradient(rgba(88, 72, 64, 0.02) 1px, transparent 1px), linear-gradient(90deg, rgba(88, 72, 64, 0.02) 1px, transparent 1px);
+            background-size: 60px 60px;
+            pointer-events: none;
+        }
+
+        .content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+            gap: 40px;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* LEFT SIDE */
+        .left {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+            max-width: 520px;
+        }
+
+        .logo-top img {
+            height: 72px;
+            width: auto;
+        }
+
+        .headline {
+            font-size: 72px;
+            font-weight: 900;
+            color: #584840;
+            line-height: 1.02;
+            letter-spacing: -3px;
+        }
+
+        .headline .accent {
+            background: linear-gradient(135deg, #7C2222, #A23B3B);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .subtext {
+            font-size: 20px;
+            font-weight: 400;
+            color: #8B7364;
+            line-height: 1.6;
+            max-width: 460px;
+        }
+
+        .features-row {
+            display: flex;
+            gap: 14px;
+            margin-top: 4px;
+            flex-wrap: wrap;
+        }
+
+        .feature-pill {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(191, 156, 134, 0.2);
+            padding: 8px 16px;
+            border-radius: 100px;
+            font-size: 13px;
+            font-weight: 600;
+            color: #584840;
+        }
+
+        /* RIGHT SIDE: Multiple floating UI cards */
+        .right {
+            flex-shrink: 0;
+            width: 860px;
+            height: 760px;
+            position: relative;
+        }
+
+        /* Product card with Make an Offer button */
+        .product-card {
+            position: absolute;
+            top: 130px;
+            left: 40px;
+            width: 420px;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            border-radius: 20px;
+            box-shadow: 0 25px 60px rgba(88, 72, 64, 0.15), 0 6px 20px rgba(88, 72, 64, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.8);
+            overflow: hidden;
+            display: flex;
+            transform: rotate(-2deg);
+            z-index: 2;
+        }
+
+        .product-image {
+            width: 170px;
+            min-height: 280px;
+            overflow: hidden;
+            flex-shrink: 0;
+        }
+
+        .product-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .product-details {
+            flex: 1;
+            padding: 24px 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        .product-category {
+            font-size: 10px;
+            color: #A27864;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            font-weight: 600;
+        }
+
+        .product-name {
+            font-size: 16px;
+            font-weight: 700;
+            color: #1a1a1a;
+            line-height: 1.3;
+        }
+
+        .product-rating {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            font-size: 11px;
+            color: #A27864;
+            margin-bottom: 10px;
+        }
+
+        .stars {
+            color: #D4A853;
+            font-size: 12px;
+        }
+
+        .product-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            margin-top: auto;
+        }
+
+        .btn {
+            padding: 10px 16px;
+            border-radius: 8px;
+            font-size: 12px;
+            font-weight: 600;
+            text-align: center;
+            font-family: inherit;
+            border: none;
+        }
+
+        .btn-outline {
+            background: #fff;
+            color: #1a1a1a;
+            border: 1.5px solid #d0d0d0;
+        }
+
+        .btn-offer {
+            background: #7C2222;
+            color: #fff;
+            box-shadow: 0 3px 10px rgba(124, 34, 34, 0.2);
+            position: relative;
+        }
+
+        /* Connector line from button */
+        .btn-offer::after {
+            content: '';
+            position: absolute;
+            right: -60px;
+            top: 50%;
+            width: 50px;
+            height: 2px;
+            background: rgba(124, 34, 34, 0.3);
+            z-index: -1;
+        }
+
+        .btn-buy {
+            background: #1a1a1a;
+            color: #fff;
+        }
+
+        /* Offer Form floating card */
+        .offer-form {
+            position: absolute;
+            top: 60px;
+            right: 80px;
+            width: 300px;
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(20px);
+            border-radius: 20px;
+            box-shadow: -10px 30px 80px rgba(88, 72, 64, 0.2), 0 10px 30px rgba(88, 72, 64, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.9);
+            padding: 28px 24px;
+            transform: rotate(3deg);
+            z-index: 3;
+        }
+
+        .form-icon {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, #7C2222, #A23B3B);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            color: #fff;
+            margin: 0 auto 10px;
+        }
+
+        .form-title {
+            font-size: 18px;
+            font-weight: 700;
+            color: #584840;
+            text-align: center;
+            margin-bottom: 2px;
+        }
+
+        .form-subtitle {
+            font-size: 12px;
+            color: #A27864;
+            text-align: center;
+            margin-bottom: 16px;
+        }
+
+        .form-field {
+            margin-bottom: 12px;
+        }
+
+        .form-field label {
+            display: block;
+            font-size: 11px;
+            font-weight: 600;
+            color: #584840;
+            margin-bottom: 4px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .form-field input {
+            width: 100%;
+            padding: 10px 14px;
+            border: 1.5px solid #e8e0d8;
+            border-radius: 8px;
+            font-size: 14px;
+            font-family: inherit;
+            color: #333;
+            background: rgba(250, 249, 245, 0.6);
+        }
+
+        .form-submit {
+            width: 100%;
+            padding: 12px;
+            background: linear-gradient(135deg, #7C2222, #8B2D2D);
+            color: #fff;
+            border: none;
+            border-radius: 10px;
+            font-size: 14px;
+            font-weight: 700;
+            font-family: inherit;
+            margin-top: 6px;
+            box-shadow: 0 4px 14px rgba(124, 34, 34, 0.3);
+        }
+
+        /* Auto-Rules mini card */
+        .rules-card {
+            position: absolute;
+            bottom: 120px;
+            left: 20px;
+            width: 340px;
+            background: rgba(255, 255, 255, 0.96);
+            backdrop-filter: blur(20px);
+            border-radius: 20px;
+            box-shadow: 10px -10px 50px rgba(88, 72, 64, 0.18);
+            border: 1px solid rgba(255, 255, 255, 0.9);
+            padding: 24px;
+            transform: rotate(-1deg);
+            z-index: 4;
+        }
+
+        .rules-mini-title {
+            font-size: 15px;
+            font-weight: 800;
+            color: #584840;
+            margin-bottom: 14px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .rules-mini-title .icon {
+            font-size: 18px;
+        }
+
+        .rule-mini-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 10px 0;
+        }
+
+        .rule-mini-row:not(:last-child) {
+            border-bottom: 1px solid rgba(191, 156, 134, 0.15);
+        }
+
+        .rule-mini-label {
+            font-size: 14px;
+            font-weight: 600;
+            color: #584840;
+        }
+
+        .toggle-mini {
+            width: 40px;
+            height: 22px;
+            border-radius: 11px;
+            background: #27AE60;
+            position: relative;
+        }
+
+        .toggle-mini-knob {
+            position: absolute;
+            top: 2px;
+            right: 2px;
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            background: #fff;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Success badge */
+        .success-badge {
+            position: absolute;
+            bottom: 240px;
+            right: 320px;
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(20px);
+            border-radius: 16px;
+            padding: 16px 24px;
+            box-shadow: 10px 20px 50px rgba(39, 174, 96, 0.15);
+            border: 1px solid rgba(255, 255, 255, 0.9);
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            transform: rotate(2deg);
+            z-index: 6;
+        }
+
+        .success-check {
+            width: 32px;
+            height: 32px;
+            background: linear-gradient(135deg, #27AE60, #2ECC71);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+            color: #fff;
+            flex-shrink: 0;
+        }
+
+        .badge-title {
+            font-size: 13px;
+            font-weight: 700;
+            color: #27AE60;
+        }
+
+        .badge-sub {
+            font-size: 10px;
+            color: #8B7364;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="bg-blob b1"></div>
+    <div class="bg-blob b2"></div>
+    <div class="bg-blob b3"></div>
+    <div class="grid-pattern"></div>
+
+    <div class="content">
+        <div class="left">
+            <!-- Quoffer Logo -->
+            <div class="logo-container">
+                <img src="new-logo.png" alt="Quoffer Logo"
+                    style="width: 192px; height: 192px; mix-blend-mode: multiply; border-radius: 12px;">
+            </div>
+            <h1 class="headline"><span class="accent">Make an Offer</span><br>for Shopify<br>Stores.</h1>
+            <p class="subtext">Add a "Name Your Price" button to any product. Automate offers with smart rules and
+                instant responses.</p>
+            <div class="features-row">
+                <div class="feature-pill"><span class="icon">🎨</span> Customizable</div>
+                <div class="feature-pill"><span class="icon">⚡</span> Auto-Rules</div>
+                <div class="feature-pill"><span class="icon">✅</span> Instant Response</div>
+            </div>
+        </div>
+
+        <div class="right">
+            <!-- Product card with Make an Offer button -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=400&h=600&fit=crop&crop=center"
+                        alt="Product" />
+                </div>
+                <div class="product-details">
+                    <span class="product-category">Furniture</span>
+                    <h2 class="product-name">Mid-Century<br>Modern Sofa</h2>
+                    <div class="product-rating">
+                        <span class="stars">★★★★★</span>
+                        <span>(24)</span>
+                    </div>
+                    <div class="product-buttons">
+                        <button class="btn btn-outline">Add to Cart</button>
+                        <button class="btn btn-offer">Make an Offer</button>
+                        <button class="btn btn-buy">Buy now</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Make an Offer Form -->
+            <div class="offer-form">
+                <div class="form-icon">🤝</div>
+                <div class="form-title">Make an Offer</div>
+                <div class="form-subtitle">Name your price</div>
+                <div class="form-field">
+                    <label>Name</label>
+                    <input type="text" value="Sarah Johnson" readonly />
+                </div>
+                <div class="form-field">
+                    <label>Your Offer</label>
+                    <input type="text" value="$ 1,200" readonly />
+                </div>
+                <button class="form-submit">Submit Offer</button>
+            </div>
+
+            <!-- Auto-Rules mini panel -->
+            <div class="rules-card">
+                <div class="rules-mini-title"><span class="icon">⚡</span> Auto-Rules</div>
+                <div class="rule-mini-row">
+                    <span class="rule-mini-label">Auto-Accept ≥ 80%</span>
+                    <div class="toggle-mini">
+                        <div class="toggle-mini-knob"></div>
+                    </div>
+                </div>
+                <div class="rule-mini-row">
+                    <span class="rule-mini-label">Auto-Decline &lt; 70%</span>
+                    <div class="toggle-mini">
+                        <div class="toggle-mini-knob"></div>
+                    </div>
+                </div>
+                <div class="rule-mini-row">
+                    <span class="rule-mini-label">Counter-Offer</span>
+                    <div class="toggle-mini">
+                        <div class="toggle-mini-knob"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Success badge -->
+            <div class="success-badge">
+                <div class="success-check">✓</div>
+                <div>
+                    <div class="badge-title">Offer Accepted!</div>
+                    <div class="badge-sub">Checkout link sent via email</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,1292 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quoffer Brand Guidelines - Confluence Version</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --rich-brown: #584840;
+            --cream: #FAF9F5;
+            --warm-tan: #A27864;
+            --soft-taupe: #BF9C86;
+            --light-beige: #F8F5ED;
+            --black: #000000;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: var(--cream);
+            color: var(--black);
+            line-height: 1.6;
+            padding: 0;
+            margin: 0;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 24px;
+        }
+
+        /* Header */
+        .header {
+            text-align: center;
+            padding: 60px 24px;
+            background: linear-gradient(135deg, var(--rich-brown) 0%, var(--warm-tan) 100%);
+            color: white;
+            margin-bottom: 48px;
+            border-radius: 16px;
+        }
+
+        .header h1 {
+            font-size: 48px;
+            font-weight: 700;
+            margin-bottom: 16px;
+            letter-spacing: -0.02em;
+        }
+
+        .header .tagline {
+            font-size: 20px;
+            opacity: 0.95;
+            font-weight: 400;
+        }
+
+        .header .meta {
+            margin-top: 24px;
+            font-size: 14px;
+            opacity: 0.8;
+        }
+
+        /* Quick Links */
+        .quick-links {
+            background: white;
+            padding: 24px;
+            border-radius: 12px;
+            border: 2px solid var(--soft-taupe);
+            margin-bottom: 40px;
+        }
+
+        .quick-links h3 {
+            color: var(--rich-brown);
+            margin-bottom: 16px;
+            font-size: 18px;
+        }
+
+        .quick-links-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 12px;
+        }
+
+        .quick-link {
+            padding: 12px 16px;
+            background: var(--light-beige);
+            border-radius: 8px;
+            text-decoration: none;
+            color: var(--rich-brown);
+            font-weight: 500;
+            transition: all 0.2s;
+            border: 1px solid transparent;
+        }
+
+        .quick-link:hover {
+            background: white;
+            border-color: var(--soft-taupe);
+            transform: translateY(-2px);
+        }
+
+        /* Section */
+        .section {
+            background: white;
+            padding: 40px;
+            margin-bottom: 32px;
+            border-radius: 12px;
+            border: 1px solid var(--soft-taupe);
+        }
+
+        h2 {
+            color: var(--rich-brown);
+            font-size: 32px;
+            font-weight: 700;
+            margin-bottom: 24px;
+            padding-bottom: 16px;
+            border-bottom: 3px solid var(--warm-tan);
+        }
+
+        h3 {
+            color: var(--rich-brown);
+            font-size: 24px;
+            font-weight: 600;
+            margin-top: 32px;
+            margin-bottom: 16px;
+        }
+
+        h4 {
+            color: var(--warm-tan);
+            font-size: 18px;
+            font-weight: 600;
+            margin-top: 24px;
+            margin-bottom: 12px;
+        }
+
+        p {
+            margin-bottom: 16px;
+            font-size: 16px;
+            line-height: 1.6;
+        }
+
+        /* Info Panel */
+        .info-panel {
+            background: linear-gradient(135deg, #E8F4F8 0%, #D4E9F2 100%);
+            border-left: 4px solid #3498DB;
+            padding: 20px 24px;
+            margin: 24px 0;
+            border-radius: 8px;
+        }
+
+        .info-panel.success {
+            background: linear-gradient(135deg, #E8F8F1 0%, #D4F0E4 100%);
+            border-left-color: var(--warm-tan);
+        }
+
+        .info-panel.warning {
+            background: linear-gradient(135deg, #FFF8E8 0%, #FFF0D4 100%);
+            border-left-color: #F39C12;
+        }
+
+        .info-panel strong {
+            color: var(--rich-brown);
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        /* Color Swatches */
+        .color-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 24px;
+            margin: 32px 0;
+        }
+
+        .color-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid var(--soft-taupe);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .color-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 24px rgba(88, 72, 64, 0.15);
+        }
+
+        .color-swatch {
+            height: 120px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            font-weight: 700;
+            cursor: pointer;
+            position: relative;
+        }
+
+        .color-info {
+            padding: 20px;
+        }
+
+        .color-name {
+            font-weight: 700;
+            font-size: 18px;
+            color: var(--rich-brown);
+            margin-bottom: 8px;
+        }
+
+        .color-hex {
+            font-family: 'Courier New', monospace;
+            font-size: 14px;
+            color: var(--warm-tan);
+            margin-bottom: 12px;
+        }
+
+        .color-values {
+            font-size: 12px;
+            color: #666;
+            line-height: 1.8;
+        }
+
+        .color-usage {
+            margin-top: 12px;
+            padding-top: 12px;
+            border-top: 1px solid var(--light-beige);
+            font-size: 13px;
+            color: #555;
+        }
+
+        /* Tables */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 24px 0;
+            background: white;
+        }
+
+        thead {
+            background: var(--rich-brown);
+            color: white;
+        }
+
+        th {
+            padding: 16px;
+            text-align: left;
+            font-weight: 600;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        td {
+            padding: 16px;
+            border-bottom: 1px solid var(--light-beige);
+        }
+
+        tbody tr:hover {
+            background: var(--light-beige);
+        }
+
+        /* Logo Examples */
+        .logo-examples {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 24px;
+            margin: 32px 0;
+        }
+
+        .logo-example {
+            border: 2px solid var(--soft-taupe);
+            border-radius: 12px;
+            overflow: hidden;
+        }
+
+        .logo-display {
+            height: 200px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 40px;
+        }
+
+        .logo-display.light {
+            background: var(--cream);
+        }
+
+        .logo-display.dark {
+            background: var(--black);
+        }
+
+        .logo-label {
+            background: var(--light-beige);
+            padding: 16px;
+            text-align: center;
+            font-weight: 600;
+            color: var(--rich-brown);
+        }
+
+        /* Do's and Don'ts */
+        .dos-donts {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+            margin: 32px 0;
+        }
+
+        .do-card,
+        .dont-card {
+            padding: 24px;
+            border-radius: 12px;
+            border: 2px solid;
+        }
+
+        .do-card {
+            background: #f0fdf4;
+            border-color: var(--warm-tan);
+        }
+
+        .dont-card {
+            background: #fef2f2;
+            border-color: #ef4444;
+        }
+
+        .do-card h4 {
+            color: var(--warm-tan);
+            margin-top: 0;
+        }
+
+        .dont-card h4 {
+            color: #ef4444;
+            margin-top: 0;
+        }
+
+        .do-card ul,
+        .dont-card ul {
+            margin-left: 20px;
+        }
+
+        .do-card li,
+        .dont-card li {
+            margin-bottom: 8px;
+        }
+
+        /* Code Block */
+        .code-block {
+            background: var(--black);
+            color: var(--cream);
+            padding: 20px;
+            border-radius: 8px;
+            font-family: 'Courier New', monospace;
+            font-size: 14px;
+            overflow-x: auto;
+            margin: 20px 0;
+        }
+
+        /* Collapsible Section */
+        .collapsible {
+            background: var(--light-beige);
+            border: 1px solid var(--soft-taupe);
+            border-radius: 8px;
+            margin: 16px 0;
+            overflow: hidden;
+        }
+
+        .collapsible-header {
+            padding: 16px 20px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+            color: var(--rich-brown);
+            user-select: none;
+        }
+
+        .collapsible-header:hover {
+            background: white;
+        }
+
+        .collapsible-content {
+            padding: 0 20px;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease, padding 0.3s ease;
+        }
+
+        .collapsible.active .collapsible-content {
+            padding: 20px;
+            max-height: 2000px;
+        }
+
+        .collapsible-icon {
+            transition: transform 0.3s;
+        }
+
+        .collapsible.active .collapsible-icon {
+            transform: rotate(180deg);
+        }
+
+        /* Typography Scale */
+        .type-scale {
+            margin: 32px 0;
+        }
+
+        .type-example {
+            padding: 24px;
+            background: white;
+            border: 1px solid var(--soft-taupe);
+            border-radius: 8px;
+            margin-bottom: 16px;
+        }
+
+        .type-example-text {
+            color: var(--rich-brown);
+            margin-bottom: 8px;
+        }
+
+        .type-example-meta {
+            font-size: 13px;
+            color: var(--warm-tan);
+            font-family: 'Courier New', monospace;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 36px;
+            }
+
+            .container {
+                padding: 20px 16px;
+            }
+
+            .section {
+                padding: 24px 20px;
+            }
+
+            .dos-donts {
+                grid-template-columns: 1fr;
+            }
+
+            .logo-examples {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding: 60px 24px;
+            color: var(--warm-tan);
+            margin-top: 60px;
+        }
+
+        .footer .handshake {
+            font-size: 64px;
+            margin-bottom: 24px;
+        }
+
+        /* Copy Button */
+        .copy-button {
+            background: var(--warm-tan);
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 6px;
+            font-size: 12px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+            margin-top: 8px;
+        }
+
+        .copy-button:hover {
+            background: var(--rich-brown);
+            transform: translateY(-1px);
+        }
+
+        .copy-button:active {
+            transform: translateY(0);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <h1>🤝 Quoffer Brand Guidelines</h1>
+            <div class="tagline">Trusted partnerships. Instant results. Human connection.</div>
+            <div class="meta">Version 3.0 (Final) | January 2026 | Confluence-Ready</div>
+        </div>
+
+        <!-- Quick Links -->
+        <div class="quick-links">
+            <h3>📑 Quick Navigation</h3>
+            <div class="quick-links-grid">
+                <a href="#logo" class="quick-link">Logo & Identity</a>
+                <a href="#colors" class="quick-link">Color System</a>
+                <a href="#typography" class="quick-link">Typography</a>
+                <a href="#voice" class="quick-link">Voice & Messaging</a>
+                <a href="#applications" class="quick-link">Applications</a>
+                <a href="#assets" class="quick-link">Asset Files</a>
+            </div>
+        </div>
+
+        <!-- Overview -->
+        <div class="section">
+            <h2>🎯 Brand Overview</h2>
+
+            <div class="info-panel success">
+                <strong>🚀 Why This Brand Matters</strong>
+                In a market dominated by cold tech brands and commission-hungry platforms, Quoffer introduces warmth,
+                trust, and human connection. Our earthy palette differentiates us and builds subconscious trust (studies
+                show brown increases perceived authenticity by 37% vs blue).
+            </div>
+
+            <h3>Strategic Positioning</h3>
+            <p><strong>"The Offerly Alternative Built on Trust"</strong></p>
+            <p>Quoffer uniquely combines:</p>
+            <ul style="margin-left: 24px; margin-bottom: 24px;">
+                <li><strong>Trust:</strong> Handshake symbolism = fair dealings (no commission ever)</li>
+                <li><strong>Speed:</strong> Instant automation (<10 seconds quote to checkout)</li>
+                <li><strong>Partnership:</strong> Merchant + customer together, not vendor-customer transaction</li>
+                <li><strong>Warmth:</strong> Earthy tones create human connection in automated world</li>
+            </ul>
+
+            <h3>Competitive Differentiation</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Aspect</th>
+                        <th>Offerly</th>
+                        <th>RFQ Apps</th>
+                        <th style="background: var(--warm-tan);">Quoffer</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Brand Feel</strong></td>
+                        <td>Tech-first, cold</td>
+                        <td>Corporate, rigid</td>
+                        <td style="background: var(--light-beige);"><strong>Warm, trustworthy</strong></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Pricing</strong></td>
+                        <td>1% commission</td>
+                        <td>Flat fee</td>
+                        <td style="background: var(--light-beige);"><strong>Flat (transparent)</strong></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Response Time</strong></td>
+                        <td>
+                            <10 seconds</td>
+                        <td>24-48 hours</td>
+                        <td style="background: var(--light-beige);"><strong>
+                                <10 seconds</strong>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><strong>Message</strong></td>
+                        <td>Speed only</td>
+                        <td>Professional only</td>
+                        <td style="background: var(--light-beige);"><strong>Speed + Trust</strong></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Logo Section -->
+        <div class="section" id="logo">
+            <h2>🎨 Logo & Visual Identity</h2>
+
+            <h3>The Handshake Q</h3>
+            <p>Our logo tells our complete competitive advantage through intentional design choices:</p>
+
+            <div class="info-panel">
+                <strong>💡 Brand Story</strong>
+                "Two parties (merchant + customer) come together in a trusted handshake to complete quotes
+                instantly—with warmth, fairness, and zero commission. No middleman. No cold automation. Just human
+                partnerships, accelerated by technology."
+            </div>
+
+            <h4>Design Elements & Meaning</h4>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Element</th>
+                        <th>Design</th>
+                        <th>Marketing Impact</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Circular Q</strong></td>
+                        <td>Perfect geometric circle</td>
+                        <td>Precision, continuous 24/7 service, completeness</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Handshake</strong></td>
+                        <td>Two hands meeting inside Q</td>
+                        <td>Universal trust symbol, reinforces "no commission", humanizes automation</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Warm Browns</strong></td>
+                        <td>Earthy color palette</td>
+                        <td>37% more authentic perception vs blue tech brands</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Lowercase Wordmark</strong></td>
+                        <td>"quoffer" in lowercase</td>
+                        <td>Approachable, modern, non-threatening</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>Logo Variations</h3>
+            <div class="logo-examples">
+                <div class="logo-example">
+                    <div class="logo-display light">
+                        <svg width="120" height="120" viewBox="0 0 200 200">
+                            <circle cx="100" cy="100" r="70" fill="none" stroke="#584840" stroke-width="8" />
+                            <path d="M 115 130 L 115 165" stroke="#584840" stroke-width="8" stroke-linecap="round" />
+                            <path d="M 60 80 Q 60 60 80 60 L 90 80" fill="none" stroke="#584840" stroke-width="8"
+                                stroke-linecap="round" />
+                            <path d="M 140 80 Q 140 60 120 60 L 110 80" fill="none" stroke="#584840" stroke-width="8"
+                                stroke-linecap="round" />
+                            <path d="M 90 80 L 110 80 L 105 110 L 95 110 Z" fill="#584840" />
+                        </svg>
+                    </div>
+                    <div class="logo-label">Light Background (Primary)</div>
+                </div>
+                <div class="logo-example">
+                    <div class="logo-display dark">
+                        <svg width="120" height="120" viewBox="0 0 200 200">
+                            <circle cx="100" cy="100" r="70" fill="none" stroke="#FAF9F5" stroke-width="8" />
+                            <path d="M 115 130 L 115 165" stroke="#FAF9F5" stroke-width="8" stroke-linecap="round" />
+                            <path d="M 60 80 Q 60 60 80 60 L 90 80" fill="none" stroke="#FAF9F5" stroke-width="8"
+                                stroke-linecap="round" />
+                            <path d="M 140 80 Q 140 60 120 60 L 110 80" fill="none" stroke="#FAF9F5" stroke-width="8"
+                                stroke-linecap="round" />
+                            <path d="M 90 80 L 110 80 L 105 110 L 95 110 Z" fill="#FAF9F5" />
+                        </svg>
+                    </div>
+                    <div class="logo-label">Dark Background (Secondary)</div>
+                </div>
+            </div>
+
+            <h3>Usage Guidelines</h3>
+            <div class="dos-donts">
+                <div class="do-card">
+                    <h4>✓ Always Do</h4>
+                    <ul>
+                        <li>Use official logo files (never recreate)</li>
+                        <li>Maintain 15% clear space around logo</li>
+                        <li>Ensure 4.5:1 contrast ratio minimum</li>
+                        <li>Use correct color version for background</li>
+                        <li>Keep aspect ratio locked</li>
+                    </ul>
+                </div>
+                <div class="dont-card">
+                    <h4>✗ Never Do</h4>
+                    <ul>
+                        <li>Don't add effects (shadows, glows, outlines)</li>
+                        <li>Don't change colors outside palette</li>
+                        <li>Don't rotate, skew, or distort</li>
+                        <li>Don't place on busy backgrounds</li>
+                        <li>Don't use below minimum sizes</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="info-panel warning">
+                <strong>⚠️ Minimum Sizes</strong>
+                <ul style="margin-top: 8px; margin-left: 20px;">
+                    <li><strong>Full logo:</strong> 120px wide (ensures handshake detail visible)</li>
+                    <li><strong>Icon only:</strong> 32px × 32px minimum</li>
+                    <li><strong>Favicon:</strong> 16px (may need simplified version)</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Color System -->
+        <div class="section" id="colors">
+            <h2>🎨 Color System: Warm Trust Palette</h2>
+
+            <div class="info-panel success">
+                <strong>🧠 Color Psychology Strategy</strong>
+                Our warm, earthy palette is strategically designed to differentiate Quoffer in a market dominated by
+                cold blues and corporate grays. Brown tones create immediate emotional response: trust, reliability,
+                human connection.
+            </div>
+
+            <h3>Primary Color Palette</h3>
+            <div class="color-grid">
+                <!-- Rich Brown -->
+                <div class="color-card">
+                    <div class="color-swatch" style="background: #584840; color: white;" onclick="copyColor('#584840')">
+                        #584840
+                    </div>
+                    <div class="color-info">
+                        <div class="color-name">Rich Brown</div>
+                        <div class="color-hex">#584840</div>
+                        <div class="color-values">
+                            <strong>RGB:</strong> 88, 72, 64<br>
+                            <strong>CMYK:</strong> 53, 57, 60, 43
+                        </div>
+                        <div class="color-usage">
+                            <strong>Use for:</strong> Headlines, primary buttons, logo, navigation<br>
+                            <strong>Psychology:</strong> Trust, stability, authority
+                        </div>
+                        <button class="copy-button" onclick="copyColor('#584840')">Copy HEX</button>
+                    </div>
+                </div>
+
+                <!-- Cream -->
+                <div class="color-card">
+                    <div class="color-swatch" style="background: #FAF9F5; color: #584840; border: 1px solid #BF9C86;"
+                        onclick="copyColor('#FAF9F5')">
+                        #FAF9F5
+                    </div>
+                    <div class="color-info">
+                        <div class="color-name">Cream</div>
+                        <div class="color-hex">#FAF9F5</div>
+                        <div class="color-values">
+                            <strong>RGB:</strong> 250, 249, 245<br>
+                            <strong>CMYK:</strong> 2, 2, 4, 0
+                        </div>
+                        <div class="color-usage">
+                            <strong>Use for:</strong> Primary background, button text<br>
+                            <strong>Psychology:</strong> Warm, clean, welcoming
+                        </div>
+                        <button class="copy-button" onclick="copyColor('#FAF9F5')">Copy HEX</button>
+                    </div>
+                </div>
+
+                <!-- Warm Tan -->
+                <div class="color-card">
+                    <div class="color-swatch" style="background: #A27864; color: white;" onclick="copyColor('#A27864')">
+                        #A27864
+                    </div>
+                    <div class="color-info">
+                        <div class="color-name">Warm Tan</div>
+                        <div class="color-hex">#A27864</div>
+                        <div class="color-values">
+                            <strong>RGB:</strong> 162, 120, 100<br>
+                            <strong>CMYK:</strong> 34, 47, 52, 13
+                        </div>
+                        <div class="color-usage">
+                            <strong>Use for:</strong> Subheadings, icons, accents<br>
+                            <strong>Psychology:</strong> Friendly, approachable
+                        </div>
+                        <button class="copy-button" onclick="copyColor('#A27864')">Copy HEX</button>
+                    </div>
+                </div>
+
+                <!-- Soft Taupe -->
+                <div class="color-card">
+                    <div class="color-swatch" style="background: #BF9C86; color: white;" onclick="copyColor('#BF9C86')">
+                        #BF9C86
+                    </div>
+                    <div class="color-info">
+                        <div class="color-name">Soft Taupe</div>
+                        <div class="color-hex">#BF9C86</div>
+                        <div class="color-values">
+                            <strong>RGB:</strong> 191, 156, 134<br>
+                            <strong>CMYK:</strong> 26, 36, 41, 6
+                        </div>
+                        <div class="color-usage">
+                            <strong>Use for:</strong> Borders, dividers, subtle UI<br>
+                            <strong>Psychology:</strong> Soft, sophisticated
+                        </div>
+                        <button class="copy-button" onclick="copyColor('#BF9C86')">Copy HEX</button>
+                    </div>
+                </div>
+
+                <!-- Light Beige -->
+                <div class="color-card">
+                    <div class="color-swatch" style="background: #F8F5ED; color: #584840; border: 1px solid #BF9C86;"
+                        onclick="copyColor('#F8F5ED')">
+                        #F8F5ED
+                    </div>
+                    <div class="color-info">
+                        <div class="color-name">Light Beige</div>
+                        <div class="color-hex">#F8F5ED</div>
+                        <div class="color-values">
+                            <strong>RGB:</strong> 248, 245, 237<br>
+                            <strong>CMYK:</strong> 3, 4, 7, 0
+                        </div>
+                        <div class="color-usage">
+                            <strong>Use for:</strong> Section backgrounds, cards<br>
+                            <strong>Psychology:</strong> Clean, subtle warmth
+                        </div>
+                        <button class="copy-button" onclick="copyColor('#F8F5ED')">Copy HEX</button>
+                    </div>
+                </div>
+
+                <!-- Black -->
+                <div class="color-card">
+                    <div class="color-swatch" style="background: #000000; color: white;" onclick="copyColor('#000000')">
+                        #000000
+                    </div>
+                    <div class="color-info">
+                        <div class="color-name">Black</div>
+                        <div class="color-hex">#000000</div>
+                        <div class="color-values">
+                            <strong>RGB:</strong> 0, 0, 0<br>
+                            <strong>CMYK:</strong> 0, 0, 0, 100
+                        </div>
+                        <div class="color-usage">
+                            <strong>Use for:</strong> Body text, high contrast<br>
+                            <strong>Psychology:</strong> Authority, clarity
+                        </div>
+                        <button class="copy-button" onclick="copyColor('#000000')">Copy HEX</button>
+                    </div>
+                </div>
+            </div>
+
+            <h3>CSS Variables for Developers</h3>
+            <div class="code-block">:root {
+                --rich-brown: #584840;
+                --cream: #FAF9F5;
+                --warm-tan: #A27864;
+                --soft-taupe: #BF9C86;
+                --light-beige: #F8F5ED;
+                --black: #000000;
+                }</div>
+
+            <h3>Usage Guidelines</h3>
+            <ul style="margin-left: 24px;">
+                <li><strong>80/20 Rule:</strong> 80% warm tones (browns/creams), 20% black for high contrast text</li>
+                <li><strong>WCAG Compliance:</strong> Always ensure 4.5:1 contrast for text, 3:1 for UI elements</li>
+                <li><strong>Primary CTA:</strong> Rich Brown (#584840) background + Cream text</li>
+                <li><strong>Backgrounds:</strong> Cream for main pages, Light Beige for sections/cards</li>
+                <li><strong>Never:</strong> Bright reds, blues, or greens—maintain warm palette integrity</li>
+            </ul>
+        </div>
+
+        <!-- Typography -->
+        <div class="section" id="typography">
+            <h2>✍️ Typography System</h2>
+
+            <h3>Primary Typeface: Inter</h3>
+            <p>Inter is our primary typeface for excellent legibility, modern character, and extensive weight options.
+            </p>
+
+            <div class="code-block">font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            </div>
+
+            <h3>Type Scale</h3>
+            <div class="type-scale">
+                <div class="type-example">
+                    <div class="type-example-text" style="font-size: 56px; font-weight: 700; line-height: 1.2;">
+                        Hero Headline
+                    </div>
+                    <div class="type-example-meta">56px / Bold (700) / Line-height: 1.2</div>
+                </div>
+
+                <div class="type-example">
+                    <div class="type-example-text" style="font-size: 40px; font-weight: 600; line-height: 1.2;">
+                        Page Title (H1)
+                    </div>
+                    <div class="type-example-meta">40px / SemiBold (600) / Line-height: 1.2</div>
+                </div>
+
+                <div class="type-example">
+                    <div class="type-example-text" style="font-size: 32px; font-weight: 600; line-height: 1.2;">
+                        Section Heading (H2)
+                    </div>
+                    <div class="type-example-meta">32px / SemiBold (600) / Line-height: 1.2</div>
+                </div>
+
+                <div class="type-example">
+                    <div class="type-example-text"
+                        style="font-size: 24px; font-weight: 500; line-height: 1.3; color: var(--warm-tan);">
+                        Subsection Heading (H3)
+                    </div>
+                    <div class="type-example-meta">24px / Medium (500) / Line-height: 1.3</div>
+                </div>
+
+                <div class="type-example">
+                    <div class="type-example-text" style="font-size: 18px; font-weight: 400; line-height: 1.6;">
+                        Large body text for feature descriptions and introductory paragraphs that need emphasis.
+                    </div>
+                    <div class="type-example-meta">18px / Regular (400) / Line-height: 1.6</div>
+                </div>
+
+                <div class="type-example">
+                    <div class="type-example-text" style="font-size: 16px; font-weight: 400; line-height: 1.6;">
+                        Standard body text for paragraphs, descriptions, and general content. This is the most commonly
+                        used text size.
+                    </div>
+                    <div class="type-example-meta">16px / Regular (400) / Line-height: 1.6</div>
+                </div>
+
+                <div class="type-example">
+                    <div class="type-example-text"
+                        style="font-size: 14px; font-weight: 400; line-height: 1.6; color: var(--warm-tan);">
+                        Small text and captions for metadata, labels, and supplementary information.
+                    </div>
+                    <div class="type-example-meta">14px / Regular (400) / Line-height: 1.6</div>
+                </div>
+            </div>
+
+            <h3>Typography Best Practices</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Property</th>
+                        <th>Value</th>
+                        <th>Notes</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Line Height</td>
+                        <td>1.6 (body), 1.2 (headings)</td>
+                        <td>Optimal readability</td>
+                    </tr>
+                    <tr>
+                        <td>Letter Spacing</td>
+                        <td>-0.02em (large headings), normal (body)</td>
+                        <td>Tighter for big text</td>
+                    </tr>
+                    <tr>
+                        <td>Paragraph Spacing</td>
+                        <td>1em (16px)</td>
+                        <td>Between paragraphs</td>
+                    </tr>
+                    <tr>
+                        <td>Max Line Length</td>
+                        <td>70 characters (600px)</td>
+                        <td>Optimal readability</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Voice & Messaging -->
+        <div class="section" id="voice">
+            <h2>💬 Voice & Messaging</h2>
+
+            <h3>Brand Voice: Warm Professionalism</h3>
+            <p>Quoffer speaks like a trusted business partner—warm, honest, and genuinely invested in mutual success.
+                Never faceless or transactional.</p>
+
+            <h4>Voice Pillars</h4>
+            <div
+                style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 16px; margin: 24px 0;">
+                <div
+                    style="background: var(--light-beige); padding: 20px; border-radius: 8px; border: 1px solid var(--soft-taupe);">
+                    <strong style="color: var(--rich-brown); display: block; margin-bottom: 8px;">🤝
+                        Trustworthy</strong>
+                    Honest, transparent, reliable. No hype or hidden fees.
+                </div>
+                <div
+                    style="background: var(--light-beige); padding: 20px; border-radius: 8px; border: 1px solid var(--soft-taupe);">
+                    <strong style="color: var(--rich-brown); display: block; margin-bottom: 8px;">👥
+                        Partnership-Focused</strong>
+                    "We" language. Success is mutual.
+                </div>
+                <div
+                    style="background: var(--light-beige); padding: 20px; border-radius: 8px; border: 1px solid var(--soft-taupe);">
+                    <strong style="color: var(--rich-brown); display: block; margin-bottom: 8px;">💡 Clear</strong>
+                    Plain language. Benefits before features.
+                </div>
+                <div
+                    style="background: var(--light-beige); padding: 20px; border-radius: 8px; border: 1px solid var(--soft-taupe);">
+                    <strong style="color: var(--rich-brown); display: block; margin-bottom: 8px;">❤️ Human</strong>
+                    Professional but never robotic. Warm not casual.
+                </div>
+            </div>
+
+            <h3>Core Messaging</h3>
+
+            <div class="collapsible active">
+                <div class="collapsible-header" onclick="toggleCollapsible(this)">
+                    <span>🎯 Pillar 1: Trust Through Transparency</span>
+                    <span class="collapsible-icon">▼</span>
+                </div>
+                <div class="collapsible-content">
+                    <p><strong>Message:</strong> "No commission. Ever. Just fair, flat pricing."</p>
+                    <p><strong>Marketing Angle:</strong> Position against Offerly's 1% commission. Emphasize savings:
+                        $50-200/month. Handshake = fair partnership.</p>
+                    <p><strong>Use When:</strong> Pricing pages, comparison content, value propositions</p>
+                </div>
+            </div>
+
+            <div class="collapsible">
+                <div class="collapsible-header" onclick="toggleCollapsible(this)">
+                    <span>⚡ Pillar 2: Speed Meets Humanity</span>
+                    <span class="collapsible-icon">▼</span>
+                </div>
+                <div class="collapsible-content">
+                    <p><strong>Message:</strong> "Instant automation with a human touch."</p>
+                    <p><strong>Marketing Angle:</strong> Position against cold RFQ tools. Emphasize <10 second response
+                            + warm brand feel.</p>
+                            <p><strong>Use When:</strong> Feature pages, automation benefits, speed comparisons</p>
+                </div>
+            </div>
+
+            <div class="collapsible">
+                <div class="collapsible-header" onclick="toggleCollapsible(this)">
+                    <span>🤝 Pillar 3: Partnership Over Transaction</span>
+                    <span class="collapsible-icon">▼</span>
+                </div>
+                <div class="collapsible-content">
+                    <p><strong>Message:</strong> "We bring merchants and customers together for mutual success."</p>
+                    <p><strong>Marketing Angle:</strong> Handshake = no middleman. Both parties win. Long-term
+                        relationship focus.</p>
+                    <p><strong>Use When:</strong> About pages, mission statements, customer stories</p>
+                </div>
+            </div>
+
+            <h3>Channel-Specific Messaging</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Channel</th>
+                        <th>Message</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Landing Page Hero</strong></td>
+                        <td>"Trusted partnerships. Instant results."<br><small>Subhead: Auto-accept quotes in <10
+                                    seconds. No commission, ever.</small>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><strong>Shopify App Store</strong></td>
+                        <td>"Auto-accept offers, hide prices, no commission - Built on trust"</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Email Subject</strong></td>
+                        <td>"Save $100/mo with Quoffer (no commission ever) 🤝"</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Social Bio</strong></td>
+                        <td>"Instant quotes. Zero commission. Trusted partnerships. 🤝"</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Social Post</strong></td>
+                        <td>"Handshakes, not hidden fees. Quoffer brings merchants and customers together with trust,
+                            transparency, and <10 second automation."</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Applications -->
+        <div class="section" id="applications">
+            <h2>🎨 Brand Applications</h2>
+
+            <h3>Landing Page Design</h3>
+
+            <h4>Hero Section</h4>
+            <ul style="margin-left: 24px; margin-bottom: 20px;">
+                <li><strong>Background:</strong> Cream (#FAF9F5)</li>
+                <li><strong>Headline:</strong> 56px Bold, Rich Brown</li>
+                <li><strong>Subheadline:</strong> 24px Regular, Black</li>
+                <li><strong>Primary CTA:</strong> Rich Brown bg, Cream text, 16px Medium, 48px height, 8px border-radius
+                </li>
+                <li><strong>Visual:</strong> Handshake icon accent in Warm Tan</li>
+            </ul>
+
+            <h4>Feature Sections</h4>
+            <ul style="margin-left: 24px; margin-bottom: 20px;">
+                <li><strong>Background Alternation:</strong> Cream / Light Beige</li>
+                <li><strong>Cards:</strong> White bg, Soft Taupe 1px border, 8px radius, 24px padding</li>
+                <li><strong>Section Headings:</strong> 40px SemiBold, Rich Brown</li>
+                <li><strong>Icons:</strong> Use handshake element as decorative accent in Warm Tan</li>
+            </ul>
+
+            <h3>Shopify App Store</h3>
+            <div
+                style="background: var(--light-beige); padding: 20px; border-radius: 8px; border: 1px solid var(--soft-taupe); margin: 20px 0;">
+                <h4 style="margin-top: 0;">App Icon Specifications</h4>
+                <ul style="margin-left: 20px;">
+                    <li><strong>Version:</strong> Dark background (black or Rich Brown bg with cream/light logo)</li>
+                    <li><strong>Size:</strong> 1024×1024px, icon only (no wordmark)</li>
+                    <li><strong>Padding:</strong> 15% from edges</li>
+                </ul>
+                <h4>Screenshots</h4>
+                <ul style="margin-left: 20px;">
+                    <li><strong>Background:</strong> Cream or Light Beige</li>
+                    <li><strong>Overlays:</strong> Rich Brown for text callouts, Warm Tan for UI highlights</li>
+                    <li><strong>Branding:</strong> Small logo bottom-right corner</li>
+                </ul>
+            </div>
+
+            <h3>Product UI (App Interface)</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Element</th>
+                        <th>Color</th>
+                        <th>Notes</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Main Background</td>
+                        <td>Cream (#FAF9F5)</td>
+                        <td>Primary canvas</td>
+                    </tr>
+                    <tr>
+                        <td>Sidebar/Navigation</td>
+                        <td>Rich Brown (#584840)</td>
+                        <td>With Cream text</td>
+                    </tr>
+                    <tr>
+                        <td>Cards</td>
+                        <td>White</td>
+                        <td>With Soft Taupe borders</td>
+                    </tr>
+                    <tr>
+                        <td>Primary Actions</td>
+                        <td>Rich Brown buttons</td>
+                        <td>Cream text, 8px radius</td>
+                    </tr>
+                    <tr>
+                        <td>Secondary Actions</td>
+                        <td>Warm Tan text</td>
+                        <td>Soft Taupe border</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>Email Design</h3>
+            <div
+                style="background: white; border: 2px solid var(--soft-taupe); border-radius: 12px; overflow: hidden; margin: 24px 0;">
+                <div
+                    style="background: var(--cream); padding: 24px; text-align: center; border-bottom: 1px solid var(--soft-taupe);">
+                    <strong style="color: var(--rich-brown);">🤝 Quoffer</strong>
+                </div>
+                <div style="padding: 32px 24px;">
+                    <h3 style="color: var(--rich-brown); margin-top: 0;">Your Quote Was Accepted!</h3>
+                    <p>Great news! The customer accepted your quote and is ready to complete their purchase.</p>
+                    <div style="text-align: center; margin: 24px 0;">
+                        <a href="#"
+                            style="display: inline-block; background: var(--rich-brown); color: var(--cream); padding: 14px 32px; border-radius: 8px; text-decoration: none; font-weight: 600;">View
+                            Order Details</a>
+                    </div>
+                    <p style="font-size: 14px; color: var(--warm-tan); margin-top: 24px;">Order #RFQ-1234 • Accepted 2
+                        minutes ago</p>
+                </div>
+                <div
+                    style="background: var(--light-beige); padding: 20px; text-align: center; font-size: 12px; color: var(--warm-tan);">
+                    <p style="margin: 0;">© 2026 Quoffer • <a href="#" style="color: var(--warm-tan);">Unsubscribe</a>
+                    </p>
+                </div>
+            </div>
+
+            <h3>Social Media</h3>
+            <div class="info-panel">
+                <strong>📱 Profile Assets</strong>
+                <ul style="margin-top: 8px; margin-left: 20px;">
+                    <li><strong>Profile Picture:</strong> Icon only, either light or dark version</li>
+                    <li><strong>Cover Image:</strong> Cream background with full logo + tagline in Rich Brown</li>
+                    <li><strong>Post Graphics:</strong> Cream/Light Beige backgrounds, handshake accent in Warm Tan</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Asset Files -->
+        <div class="section" id="assets">
+            <h2>📦 Asset Files & Delivery</h2>
+
+            <h3>Required File Formats</h3>
+
+            <h4>Vector Files (Scalable)</h4>
+            <ul style="margin-left: 24px;">
+                <li><strong>SVG:</strong> Primary for web/digital use</li>
+                <li><strong>PDF:</strong> For print and presentations</li>
+                <li><strong>AI/EPS:</strong> For professional design software</li>
+            </ul>
+
+            <h4>Raster Files (PNG with Transparency)</h4>
+            <div style="background: var(--light-beige); padding: 20px; border-radius: 8px; margin: 16px 0;">
+                <strong>Required Sizes:</strong> 4096px, 1024px, 512px, 256px, 128px, 64px, 32px, 16px
+            </div>
+
+            <h3>Color Variations</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Variation</th>
+                        <th>When to Use</th>
+                        <th>Specs</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Light Background</strong></td>
+                        <td>Landing pages, light-themed apps, documents</td>
+                        <td>Rich Brown (#584840) logo on transparent</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Dark Background</strong></td>
+                        <td>App icons, dark mode UI, video overlays</td>
+                        <td>Cream (#FAF9F5) logo on transparent</td>
+                    </tr>
+                    <tr>
+                        <td><strong>App Icon Filled</strong></td>
+                        <td>iOS, Android, Shopify app stores</td>
+                        <td>Black or Rich Brown bg with light logo</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>File Naming Convention</h3>
+            <div class="code-block">quoffer-logo-[variation]-[background]-[size].[format]
+
+                Examples:
+                • quoffer-logo-full-light-1024px.png
+                • quoffer-logo-icon-dark-512px.png
+                • quoffer-logo-full-light.svg</div>
+
+            <div class="info-panel warning">
+                <strong>⚠️ Important Notes</strong>
+                <ul style="margin-top: 8px; margin-left: 20px;">
+                    <li>Always use official logo files—never recreate or modify</li>
+                    <li>Test logos at actual usage size before deployment</li>
+                    <li>Maintain file organization: separate folders for each variation</li>
+                    <li>Include both RGB (digital) and CMYK (print) versions where applicable</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div class="footer">
+            <div class="handshake">🤝</div>
+            <p style="font-size: 20px; color: var(--rich-brown); margin-bottom: 8px;">
+                <strong>Trusted partnerships. Instant results. Human connection.</strong>
+            </p>
+            <p style="font-size: 14px;">
+                Questions about these guidelines? Contact: <a href="mailto:brand@quoffer.com"
+                    style="color: var(--warm-tan);">brand@quoffer.com</a>
+            </p>
+            <p style="font-size: 12px; margin-top: 24px; opacity: 0.7;">
+                Version 3.0 (Final) • January 2026
+            </p>
+        </div>
+    </div>
+
+    <script>
+        // Toggle collapsible sections
+        function toggleCollapsible(header) {
+            const collapsible = header.parentElement;
+            collapsible.classList.toggle('active');
+        }
+
+        // Copy color to clipboard
+        function copyColor(color) {
+            navigator.clipboard.writeText(color).then(() => {
+                // Show feedback
+                const originalText = event.target.textContent;
+                event.target.textContent = 'Copied!';
+                event.target.style.background = 'var(--warm-tan)';
+
+                setTimeout(() => {
+                    event.target.textContent = originalText;
+                    event.target.style.background = '';
+                }, 2000);
+            }).catch(err => {
+                console.error('Failed to copy:', err);
+                alert('Color copied: ' + color);
+            });
+        }
+
+        // Smooth scroll for quick links
+        document.querySelectorAll('.quick-link').forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                const targetId = link.getAttribute('href').substring(1);
+                const targetSection = document.getElementById(targetId);
+                if (targetSection) {
+                    targetSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Quoffer App Listing - Image 3: Auto-Rules</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html,
+        body {
+            width: 1600px;
+            height: 900px;
+            overflow: hidden;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: linear-gradient(160deg, #FAF9F5 0%, #F3EDE6 35%, #E8DDD4 70%, #D9CFC6 100%);
+            display: flex;
+            align-items: center;
+            padding: 0 90px;
+            position: relative;
+        }
+
+        .bg-blob {
+            position: absolute;
+            border-radius: 50%;
+            pointer-events: none;
+            filter: blur(80px);
+            opacity: 0.4;
+        }
+
+        .bg-blob.b1 {
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(39, 174, 96, 0.12), transparent 70%);
+            top: -100px;
+            right: 200px;
+        }
+
+        .bg-blob.b2 {
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(192, 57, 43, 0.1), transparent 70%);
+            bottom: -80px;
+            left: 400px;
+        }
+
+        .grid-pattern {
+            position: absolute;
+            inset: 0;
+            background-image: linear-gradient(rgba(88, 72, 64, 0.02) 1px, transparent 1px), linear-gradient(90deg, rgba(88, 72, 64, 0.02) 1px, transparent 1px);
+            background-size: 60px 60px;
+            pointer-events: none;
+        }
+
+        .content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+            gap: 50px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .left {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 28px;
+            max-width: 520px;
+        }
+
+        .logo-top img {
+            height: 72px;
+            width: auto;
+        }
+
+        .headline {
+            font-size: 66px;
+            font-weight: 900;
+            color: #584840;
+            line-height: 1.02;
+            letter-spacing: -3px;
+        }
+
+        .headline .accent {
+            background: linear-gradient(135deg, #7C2222, #A23B3B);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .subtext {
+            font-size: 20px;
+            font-weight: 400;
+            color: #8B7364;
+            line-height: 1.6;
+            max-width: 440px;
+        }
+
+        .features-row {
+            display: flex;
+            gap: 16px;
+            margin-top: 4px;
+            flex-wrap: wrap;
+        }
+
+        .feature-pill {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(191, 156, 134, 0.2);
+            padding: 8px 16px;
+            border-radius: 100px;
+            font-size: 13px;
+            font-weight: 600;
+            color: #584840;
+        }
+
+        /* RIGHT: Auto-Rules Panel */
+        .right {
+            flex-shrink: 0;
+            width: 860px;
+            height: 740px;
+            position: relative;
+        }
+
+        .rules-panel {
+            position: absolute;
+            top: 10px;
+            left: 30px;
+            right: 30px;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            border-radius: 20px;
+            box-shadow: 0 25px 60px rgba(88, 72, 64, 0.15);
+            border: 1px solid rgba(255, 255, 255, 0.6);
+            padding: 32px 36px;
+            transform: rotate(0.5deg);
+        }
+
+        .rules-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 24px;
+            padding-bottom: 16px;
+            border-bottom: 1px solid rgba(191, 156, 134, 0.12);
+        }
+
+        .rules-title {
+            font-size: 20px;
+            font-weight: 700;
+            color: #584840;
+        }
+
+        .rules-name-input {
+            padding: 8px 16px;
+            border: 1.5px solid #e0d8d0;
+            border-radius: 8px;
+            font-size: 14px;
+            color: #333;
+            background: #faf9f5;
+            font-family: inherit;
+            width: 200px;
+        }
+
+        .scope-tabs {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 28px;
+        }
+
+        .scope-tab {
+            padding: 10px 20px;
+            border-radius: 10px;
+            font-size: 13px;
+            font-weight: 600;
+            border: 1.5px solid #e0d8d0;
+            background: #faf9f5;
+            color: #8B7364;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .scope-tab.active {
+            background: #584840;
+            color: #fff;
+            border-color: #584840;
+        }
+
+        .rule-section {
+            margin-bottom: 24px;
+        }
+
+        .rule-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 8px;
+        }
+
+        .rule-label {
+            font-size: 16px;
+            font-weight: 700;
+            color: #584840;
+        }
+
+        .rule-desc {
+            font-size: 12px;
+            color: #8B7364;
+            margin-bottom: 10px;
+        }
+
+        .toggle {
+            width: 44px;
+            height: 24px;
+            border-radius: 12px;
+            position: relative;
+            cursor: pointer;
+        }
+
+        .toggle.on {
+            background: #27AE60;
+        }
+
+        .toggle.off {
+            background: #d0d0d0;
+        }
+
+        .toggle-knob {
+            position: absolute;
+            top: 2px;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: #fff;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+        }
+
+        .toggle.on .toggle-knob {
+            right: 2px;
+        }
+
+        .toggle.off .toggle-knob {
+            left: 2px;
+        }
+
+        .threshold-label {
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 6px;
+        }
+
+        .threshold-label.accept {
+            color: #27AE60;
+        }
+
+        .threshold-label.decline {
+            color: #C0392B;
+        }
+
+        .threshold-value {
+            font-size: 40px;
+            font-weight: 800;
+            float: right;
+            margin-top: -46px;
+        }
+
+        .threshold-value.accept {
+            color: #27AE60;
+        }
+
+        .threshold-value.decline {
+            color: #C0392B;
+        }
+
+        .threshold-bar {
+            width: 100%;
+            height: 10px;
+            border-radius: 5px;
+            position: relative;
+            margin: 8px 0;
+        }
+
+        .threshold-bar.accept-bar {
+            background: linear-gradient(90deg, #e0d8d0, #27AE60);
+        }
+
+        .threshold-bar.decline-bar {
+            background: linear-gradient(90deg, #C0392B, #e0d8d0);
+        }
+
+        .bar-thumb {
+            position: absolute;
+            top: -7px;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            border: 3px solid #fff;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+        }
+
+        .bar-thumb.green {
+            background: #27AE60;
+        }
+
+        .bar-thumb.red {
+            background: #C0392B;
+        }
+
+        .bar-labels {
+            display: flex;
+            justify-content: space-between;
+            font-size: 10px;
+            color: #A27864;
+            margin-top: 2px;
+        }
+
+        .rule-feedback {
+            padding: 10px 16px;
+            border-radius: 10px;
+            font-size: 13px;
+            font-weight: 500;
+            margin-top: 6px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .rule-feedback.accept {
+            background: rgba(39, 174, 96, 0.08);
+            color: #27AE60;
+        }
+
+        .rule-feedback.decline {
+            background: rgba(192, 57, 43, 0.08);
+            color: #C0392B;
+        }
+
+        .feedback-icon {
+            font-size: 16px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="bg-blob b1"></div>
+    <div class="bg-blob b2"></div>
+    <div class="grid-pattern"></div>
+
+    <div class="content">
+        <div class="left">
+            <!-- Quoffer Logo -->
+            <div class="logo-container" style="margin-bottom: -10px;">
+                <img src="new-logo.png" alt="Quoffer Logo"
+                    style="width: 192px; height: 192px; mix-blend-mode: multiply; border-radius: 12px;">
+            </div>
+            <h1 class="headline"><span class="accent">Auto-Accept</span><br>& Decline<br>in Seconds.</h1>
+            <p class="subtext">Set price thresholds. Offers above your minimum? Automatically accepted with a checkout
+                link.</p>
+            <div class="features-row">
+                <div class="feature-pill"><span class="icon">⚡</span> Instant</div>
+                <div class="feature-pill"><span class="icon">🎯</span> Custom Thresholds</div>
+                <div class="feature-pill"><span class="icon">🔄</span> Counter-Offer</div>
+            </div>
+        </div>
+
+        <div class="right">
+            <div class="rules-panel">
+                <div class="rules-header">
+                    <span class="rules-title">Auto-Rules</span>
+                    <input class="rules-name-input" value="Make an Offer" readonly />
+                </div>
+
+                <div
+                    style="font-size:12px;font-weight:600;color:#8B7364;text-transform:uppercase;letter-spacing:1px;margin-bottom:10px;">
+                    Target Scope</div>
+                <div class="scope-tabs">
+                    <div class="scope-tab active">🏷️ All Products</div>
+                    <div class="scope-tab">📁 Collections</div>
+                    <div class="scope-tab">📌 Specific Items</div>
+                </div>
+
+                <!-- Auto-Accept Rule -->
+                <div class="rule-section">
+                    <div class="rule-row">
+                        <span class="rule-label">Auto-Accept</span>
+                    </div>
+                    <div class="rule-desc">Offers above this percentage are approved instantly.</div>
+                    <div class="threshold-label accept">ACCEPTANCE THRESHOLD</div>
+                    <div class="threshold-value accept">80%</div>
+                    <div class="threshold-bar accept-bar">
+                        <div class="bar-thumb green" style="left: 75%;"></div>
+                    </div>
+                    <div class="bar-labels"><span>MIN: 0%</span><span>MAX: 100%</span></div>
+                    <div class="rule-feedback accept">
+                        <span class="feedback-icon">✅</span>
+                        Offers ≥ <strong>80%</strong> of product price will be auto-accepted.
+                    </div>
+                </div>
+
+                <!-- Auto-Decline Rule -->
+                <div class="rule-section">
+                    <div class="rule-row">
+                        <span class="rule-label">Auto-Decline</span>
+                    </div>
+                    <div class="threshold-label decline">DECLINE THRESHOLD</div>
+                    <div class="threshold-value decline">70%</div>
+                    <div class="threshold-bar decline-bar">
+                        <div class="bar-thumb red" style="right: 25%;"></div>
+                    </div>
+                    <div class="bar-labels"><span>MIN: 50%</span><span>MAX: 79%</span></div>
+                    <div class="rule-feedback decline">
+                        <span class="feedback-icon">❌</span>
+                        Offers < <strong>70%</strong> of product price will be rejected automatically.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

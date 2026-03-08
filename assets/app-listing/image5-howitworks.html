@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Quoffer App Listing - Image 5: How It Works</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html,
+        body {
+            width: 1600px;
+            height: 900px;
+            overflow: hidden;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: linear-gradient(160deg, #FAF9F5 0%, #F3EDE6 35%, #E8DDD4 70%, #D9CFC6 100%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 60px 100px;
+            position: relative;
+        }
+
+        .bg-blob {
+            position: absolute;
+            border-radius: 50%;
+            pointer-events: none;
+            filter: blur(80px);
+            opacity: 0.4;
+        }
+
+        .bg-blob.b1 {
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(162, 120, 100, 0.2), transparent 70%);
+            top: -150px;
+            left: 200px;
+        }
+
+        .bg-blob.b2 {
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(88, 72, 64, 0.12), transparent 70%);
+            bottom: -100px;
+            right: 300px;
+        }
+
+        .grid-pattern {
+            position: absolute;
+            inset: 0;
+            background-image: linear-gradient(rgba(88, 72, 64, 0.02) 1px, transparent 1px), linear-gradient(90deg, rgba(88, 72, 64, 0.02) 1px, transparent 1px);
+            background-size: 60px 60px;
+            pointer-events: none;
+        }
+
+        .top-section {
+            text-align: center;
+            margin-bottom: 50px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .logo-top {
+            margin-bottom: 20px;
+        }
+
+        .logo-top img {
+            height: 60px;
+            width: auto;
+        }
+
+        .headline {
+            font-size: 58px;
+            font-weight: 900;
+            color: #584840;
+            line-height: 1.05;
+            letter-spacing: -2.5px;
+            margin-bottom: 12px;
+        }
+
+        .headline .accent {
+            background: linear-gradient(135deg, #7C2222, #A23B3B);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .subtext {
+            font-size: 20px;
+            color: #8B7364;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Steps row */
+        .steps-row {
+            display: flex;
+            align-items: stretch;
+            gap: 0;
+            position: relative;
+            z-index: 1;
+            width: 100%;
+            max-width: 1400px;
+        }
+
+        /* Connector lines */
+        .step-wrapper {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: relative;
+        }
+
+        .step-wrapper:not(:last-child)::after {
+            content: '';
+            position: absolute;
+            top: 50px;
+            right: -10%;
+            width: 20%;
+            height: 3px;
+            background: linear-gradient(90deg, #BF9C86, rgba(191, 156, 134, 0.3));
+            z-index: 0;
+        }
+
+        .step-card {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            border-radius: 24px;
+            box-shadow: 0 20px 50px rgba(88, 72, 64, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.7);
+            padding: 36px 28px;
+            text-align: center;
+            width: 380px;
+            position: relative;
+            transition: transform 0.3s;
+        }
+
+        .step-card:hover {
+            transform: translateY(-4px);
+        }
+
+        .step-number {
+            width: 56px;
+            height: 56px;
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            font-weight: 800;
+            margin: 0 auto 18px;
+            color: #fff;
+        }
+
+        .step-number.s1 {
+            background: linear-gradient(135deg, #584840, #7A6B63);
+        }
+
+        .step-number.s2 {
+            background: linear-gradient(135deg, #7C2222, #A23B3B);
+        }
+
+        .step-number.s3 {
+            background: linear-gradient(135deg, #27AE60, #2ECC71);
+        }
+
+        .step-icon {
+            font-size: 44px;
+            margin-bottom: 14px;
+        }
+
+        .step-title {
+            font-size: 22px;
+            font-weight: 800;
+            color: #584840;
+            margin-bottom: 8px;
+        }
+
+        .step-desc {
+            font-size: 14px;
+            color: #8B7364;
+            line-height: 1.6;
+            margin-bottom: 16px;
+        }
+
+        .step-time {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: rgba(88, 72, 64, 0.06);
+            padding: 6px 14px;
+            border-radius: 100px;
+            font-size: 12px;
+            font-weight: 600;
+            color: #584840;
+        }
+
+        .step-visual {
+            margin-top: 16px;
+            background: rgba(250, 249, 245, 0.8);
+            border-radius: 12px;
+            padding: 12px;
+        }
+
+        .mini-btn {
+            padding: 8px 16px;
+            border-radius: 6px;
+            font-size: 11px;
+            font-weight: 600;
+            border: none;
+            font-family: inherit;
+            display: inline-block;
+        }
+
+        .mini-btn.offer {
+            background: #7C2222;
+            color: #fff;
+        }
+
+        .mini-btn.outline {
+            background: #fff;
+            border: 1px solid #d0d0d0;
+            color: #333;
+        }
+
+        .mini-btn.success {
+            background: #27AE60;
+            color: #fff;
+        }
+
+        .mini-form {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        .mini-input {
+            padding: 6px 10px;
+            border: 1px solid #e0d8d0;
+            border-radius: 6px;
+            font-size: 11px;
+            color: #666;
+            background: #faf9f5;
+            font-family: inherit;
+        }
+
+        .mini-success {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .mini-check {
+            width: 28px;
+            height: 28px;
+            background: #27AE60;
+            border-radius: 50%;
+            color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+            flex-shrink: 0;
+        }
+
+        .mini-success-text {
+            font-size: 11px;
+            color: #27AE60;
+            font-weight: 600;
+            text-align: left;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="bg-blob b1"></div>
+    <div class="bg-blob b2"></div>
+    <div class="grid-pattern"></div>
+
+    <div class="top-section">
+        <!-- Quoffer Logo -->
+        <div class="logo-container" style="margin-bottom: -10px;">
+            <img src="new-logo.png" alt="Quoffer Logo"
+                style="width: 192px; height: 192px; mix-blend-mode: multiply; border-radius: 12px;">
+        </div>
+        <h1 class="headline"><span class="accent">3 Simple Steps</span> to Your First Offer.</h1>
+        <p class="subtext">From install to automated offers in minutes, not hours.</p>
+    </div>
+
+    <div class="steps-row">
+        <!-- Step 1 -->
+        <div class="step-wrapper">
+            <div class="step-card">
+                <div class="step-number s1">1</div>
+                <div class="step-icon">🛠️</div>
+                <div class="step-title">Install & Configure</div>
+                <div class="step-desc">Enable the app embed, customize your offer button, and set your auto-rules.</div>
+                <div class="step-time">⏱ 5 minutes</div>
+                <div class="step-visual">
+                    <div style="display:flex;gap:6px;justify-content:center;">
+                        <span class="mini-btn outline">🎨 Style</span>
+                        <span class="mini-btn offer">⚡ Rules</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Step 2 -->
+        <div class="step-wrapper">
+            <div class="step-card">
+                <div class="step-number s2">2</div>
+                <div class="step-icon">🛒</div>
+                <div class="step-title">Customer Makes Offer</div>
+                <div class="step-desc">Buyer clicks "Make an Offer," enters their price, and submits instantly.</div>
+                <div class="step-time">⏱ < 1 minute</div>
+                        <div class="step-visual">
+                            <div class="mini-form">
+                                <input class="mini-input" value="Sarah Johnson" readonly />
+                                <input class="mini-input" value="$ 1,200" readonly />
+                                <span class="mini-btn offer" style="text-align:center;padding:8px;">Submit Offer</span>
+                            </div>
+                        </div>
+                </div>
+            </div>
+
+            <!-- Step 3 -->
+            <div class="step-wrapper">
+                <div class="step-card">
+                    <div class="step-number s3">3</div>
+                    <div class="step-icon">✅</div>
+                    <div class="step-title">Auto-Accepted!</div>
+                    <div class="step-desc">Offer meets your threshold — instantly accepted. Checkout link sent to
+                        customer.</div>
+                    <div class="step-time">⏱ < 10 seconds</div>
+                            <div class="step-visual">
+                                <div class="mini-success">
+                                    <div class="mini-check">✓</div>
+                                    <div class="mini-success-text">Offer Accepted!<br>Checkout link sent</div>
+                                </div>
+                            </div>
+                    </div>
+                </div>
+            </div>
+</body>
+
+</html>

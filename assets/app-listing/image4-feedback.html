@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Quoffer App Listing - Image 4: Instant Feedback</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html,
+        body {
+            width: 1600px;
+            height: 900px;
+            overflow: hidden;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: linear-gradient(160deg, #FAF9F5 0%, #F3EDE6 35%, #E8DDD4 70%, #D9CFC6 100%);
+            display: flex;
+            align-items: center;
+            padding: 0 90px;
+            position: relative;
+        }
+
+        .bg-blob {
+            position: absolute;
+            border-radius: 50%;
+            pointer-events: none;
+            filter: blur(80px);
+            opacity: 0.4;
+        }
+
+        .bg-blob.b1 {
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(39, 174, 96, 0.15), transparent 70%);
+            top: -100px;
+            right: 100px;
+        }
+
+        .bg-blob.b2 {
+            width: 350px;
+            height: 350px;
+            background: radial-gradient(circle, rgba(162, 120, 100, 0.2), transparent 70%);
+            bottom: -50px;
+            left: 300px;
+        }
+
+        .grid-pattern {
+            position: absolute;
+            inset: 0;
+            background-image: linear-gradient(rgba(88, 72, 64, 0.02) 1px, transparent 1px), linear-gradient(90deg, rgba(88, 72, 64, 0.02) 1px, transparent 1px);
+            background-size: 60px 60px;
+            pointer-events: none;
+        }
+
+        .content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+            gap: 50px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .left {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 28px;
+            max-width: 520px;
+        }
+
+        .logo-top img {
+            height: 72px;
+            width: auto;
+        }
+
+        .headline {
+            font-size: 66px;
+            font-weight: 900;
+            color: #584840;
+            line-height: 1.02;
+            letter-spacing: -3px;
+        }
+
+        .headline .accent {
+            background: linear-gradient(135deg, #27AE60, #2ECC71);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .subtext {
+            font-size: 20px;
+            font-weight: 400;
+            color: #8B7364;
+            line-height: 1.6;
+            max-width: 440px;
+        }
+
+        .features-row {
+            display: flex;
+            gap: 16px;
+            margin-top: 4px;
+            flex-wrap: wrap;
+        }
+
+        .feature-pill {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(191, 156, 134, 0.2);
+            padding: 8px 16px;
+            border-radius: 100px;
+            font-size: 13px;
+            font-weight: 600;
+            color: #584840;
+        }
+
+        /* RIGHT: Floating response cards */
+        .right {
+            flex-shrink: 0;
+            width: 860px;
+            height: 740px;
+            position: relative;
+        }
+
+        .response-card {
+            position: absolute;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            border-radius: 20px;
+            box-shadow: 0 25px 60px rgba(88, 72, 64, 0.12);
+            border: 1px solid rgba(255, 255, 255, 0.7);
+            padding: 32px;
+            text-align: center;
+        }
+
+        /* Accepted - main card */
+        .card-accepted {
+            width: 380px;
+            top: 40px;
+            left: 120px;
+            transform: rotate(-1deg);
+            z-index: 3;
+            box-shadow: 0 30px 80px rgba(39, 174, 96, 0.15), 0 8px 24px rgba(88, 72, 64, 0.08);
+        }
+
+        .card-icon {
+            width: 64px;
+            height: 64px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 16px;
+            font-size: 32px;
+        }
+
+        .card-icon.green {
+            background: linear-gradient(135deg, rgba(39, 174, 96, 0.12), rgba(46, 204, 113, 0.12));
+        }
+
+        .card-icon.orange {
+            background: linear-gradient(135deg, rgba(243, 156, 18, 0.12), rgba(241, 196, 15, 0.12));
+        }
+
+        .card-icon.blue {
+            background: linear-gradient(135deg, rgba(52, 152, 219, 0.12), rgba(41, 128, 185, 0.12));
+        }
+
+        .card-title {
+            font-size: 24px;
+            font-weight: 800;
+            margin-bottom: 8px;
+        }
+
+        .card-title.green {
+            color: #27AE60;
+        }
+
+        .card-title.orange {
+            color: #E67E22;
+        }
+
+        .card-title.blue {
+            color: #2980B9;
+        }
+
+        .card-text {
+            font-size: 14px;
+            color: #8B7364;
+            line-height: 1.5;
+            margin-bottom: 20px;
+        }
+
+        .card-btn {
+            display: block;
+            padding: 14px 24px;
+            border-radius: 10px;
+            font-size: 15px;
+            font-weight: 700;
+            text-align: center;
+            border: none;
+            font-family: inherit;
+            width: 100%;
+        }
+
+        .card-btn.green {
+            background: linear-gradient(135deg, #27AE60, #2ECC71);
+            color: #fff;
+            box-shadow: 0 4px 16px rgba(39, 174, 96, 0.3);
+        }
+
+        .card-btn.orange {
+            background: linear-gradient(135deg, #E67E22, #F39C12);
+            color: #fff;
+            box-shadow: 0 4px 16px rgba(230, 126, 34, 0.3);
+        }
+
+        .card-divider {
+            width: 40px;
+            height: 3px;
+            background: rgba(191, 156, 134, 0.2);
+            border-radius: 2px;
+            margin: 12px auto;
+        }
+
+        .card-detail {
+            font-size: 12px;
+            color: #A27864;
+        }
+
+        .card-detail strong {
+            color: #584840;
+            font-weight: 700;
+        }
+
+        /* Counter - secondary card */
+        .card-counter {
+            width: 300px;
+            top: 180px;
+            right: 30px;
+            transform: rotate(2deg);
+            z-index: 2;
+            padding: 26px;
+        }
+
+        /* Review - tertiary card */
+        .card-review {
+            width: 280px;
+            bottom: 30px;
+            left: 40px;
+            transform: rotate(-2deg);
+            z-index: 1;
+            padding: 24px;
+        }
+
+        .card-counter .card-title {
+            font-size: 20px;
+        }
+
+        .card-counter .card-text {
+            font-size: 13px;
+            margin-bottom: 16px;
+        }
+
+        .card-counter .card-btn {
+            padding: 12px 20px;
+            font-size: 14px;
+        }
+
+        .card-review .card-title {
+            font-size: 18px;
+        }
+
+        .card-review .card-text {
+            font-size: 12px;
+            margin-bottom: 14px;
+        }
+
+        .card-review .card-btn {
+            padding: 10px 18px;
+            font-size: 13px;
+            background: rgba(41, 128, 185, 0.1);
+            color: #2980B9;
+        }
+
+        .offer-summary {
+            background: rgba(250, 249, 245, 0.8);
+            border-radius: 12px;
+            padding: 14px;
+            margin-bottom: 16px;
+        }
+
+        .offer-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 6px;
+        }
+
+        .offer-row:last-child {
+            margin-bottom: 0;
+        }
+
+        .offer-label {
+            font-size: 12px;
+            color: #8B7364;
+        }
+
+        .offer-value {
+            font-size: 14px;
+            font-weight: 700;
+            color: #584840;
+        }
+
+        .offer-value.strike {
+            text-decoration: line-through;
+            color: #A27864;
+            font-weight: 400;
+        }
+
+        .offer-value.highlight {
+            color: #27AE60;
+            font-size: 16px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="bg-blob b1"></div>
+    <div class="bg-blob b2"></div>
+    <div class="grid-pattern"></div>
+
+    <div class="content">
+        <div class="left">
+            <!-- Quoffer Logo -->
+            <div class="logo-container" style="margin-bottom: -10px;">
+                <img src="new-logo.png" alt="Quoffer Logo"
+                    style="width: 192px; height: 192px; mix-blend-mode: multiply; border-radius: 12px;">
+            </div>
+            <h1 class="headline"><span class="accent">Instant</span><br>Customer<br>Responses.</h1>
+            <p class="subtext">Customers see results immediately. Accepted, countered, or under review — every outcome
+                is covered.</p>
+            <div class="features-row">
+                <div class="feature-pill"><span class="icon">✅</span> Accepted</div>
+                <div class="feature-pill"><span class="icon">💰</span> Counter-Offer</div>
+                <div class="feature-pill"><span class="icon">⏳</span> Under Review</div>
+            </div>
+        </div>
+
+        <div class="right">
+            <!-- ACCEPTED CARD (main) -->
+            <div class="response-card card-accepted">
+                <div class="card-icon green">✅</div>
+                <div class="card-title green">Offer Accepted!</div>
+                <div class="card-text">Great news! Your offer of <strong style="color:#584840;">$142</strong> for
+                    Vintage Chair has been accepted.</div>
+                <div class="offer-summary">
+                    <div class="offer-row"><span class="offer-label">Your Offer</span><span
+                            class="offer-value highlight">$142.00</span></div>
+                    <div class="offer-row"><span class="offer-label">Original Price</span><span
+                            class="offer-value strike">$150.00</span></div>
+                    <div class="offer-row"><span class="offer-label">You Save</span><span class="offer-value"
+                            style="color:#27AE60;">$8.00</span></div>
+                </div>
+                <button class="card-btn green">Checkout Now</button>
+            </div>
+
+            <!-- COUNTER CARD -->
+            <div class="response-card card-counter">
+                <div class="card-icon orange">💰</div>
+                <div class="card-title orange">Counter-Offer</div>
+                <div class="card-text">We'd like to offer you a better price:</div>
+                <div class="offer-summary" style="padding:10px;">
+                    <div class="offer-row"><span class="offer-label">Counter</span><span class="offer-value"
+                            style="color:#E67E22;font-size:18px;">$135.00</span></div>
+                </div>
+                <button class="card-btn orange">Accept Counter</button>
+            </div>
+
+            <!-- REVIEW CARD -->
+            <div class="response-card card-review">
+                <div class="card-icon blue">⏳</div>
+                <div class="card-title blue">Under Review</div>
+                <div class="card-text">We're reviewing your offer. You'll hear back within 4 hours.</div>
+                <button class="card-btn">View Status</button>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

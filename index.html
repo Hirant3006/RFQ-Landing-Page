@@ -6,65 +6,312 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!-- Primary Meta Tags -->
-    <title>Quoffer - Request for Quote App for Shopify | Hide Prices & Manage B2B Quotes</title>
-    <meta name="title" content="Quoffer - Request for Quote App for Shopify | Hide Prices & Manage B2B Quotes">
+    <title>Quoffer - Make an Offer App for Shopify | Zero Commission</title>
+    <meta name="title" content="Quoffer - Make an Offer App for Shopify | Zero Commission">
     <meta name="description"
-        content="Professional quote management for Shopify. Hide prices for B2B customers, collect custom requests, convert to Draft Orders. Theme-safe, 5-minute setup. Free plan available.">
-    <meta name="keywords"
-        content="request for quote, RFQ app, hide prices, B2B quotes, wholesale pricing, Shopify quote management, Draft Orders, theme-safe installation">
+        content="Let customers name their price. Auto-accept, counter, or review instantly. Flat monthly pricing with zero commission fees.">
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://quoffer.com/">
-    <meta property="og:title" content="Quoffer - Request for Quote App for Shopify">
+    <meta property="og:title" content="Quoffer - Make an Offer App for Shopify">
     <meta property="og:description"
-        content="Hide prices for B2B customers, collect custom requests, convert to Draft Orders. Theme-safe, 5-minute setup.">
+        content="Let customers name their price. Auto-accept, counter, or review instantly. Flat monthly pricing with zero commission fees.">
     <meta property="og:image" content="https://quoffer.com/assets/og-image.png">
 
-    <!-- Twitter -->
-    <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://quoffer.com/">
-    <meta property="twitter:title" content="Quoffer - Request for Quote App for Shopify">
-    <meta property="twitter:description"
-        content="Hide prices for B2B customers, collect custom requests, convert to Draft Orders.">
-    <meta property="twitter:image" content="https://quoffer.com/assets/og-image.png">
-
     <!-- Favicons -->
-    <link rel="icon" type="image/x-icon" href="assets/favicon/favicon.ico">
-    <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon/favicon-16x16.png">
-    <link rel="apple-touch-icon" sizes="180x180" href="assets/favicon/apple-touch-icon.png">
-    <link rel="manifest" href="assets/favicon/site.webmanifest">
+    <link rel="icon" type="image/svg+xml" href="assets/Logo.svg">
+    <link rel="icon" type="image/png" href="assets/favicon.png">
+    <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
 
     <!-- Stylesheet -->
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="app-components.css">
+    <style>
+        /* New Landing Page Specific Overrides */
 
-    <!-- Structured Data -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "SoftwareApplication",
-      "name": "Quoffer",
-      "applicationCategory": "BusinessApplication",
-      "operatingSystem": "Web",
-      "offers": {
-        "@type": "Offer",
-        "price": "0",
-        "priceCurrency": "USD"
-      },
-      "aggregateRating": {
-        "@type": "AggregateRating",
-        "ratingValue": "5.0",
-        "ratingCount": "100"
-      },
-      "description": "Professional quote management application for Shopify merchants. Hide prices, collect custom data, and convert quotes to orders seamlessly."
-    }
-    </script>
+        /* Premium Hero Section */
+        .hero-section {
+            background: linear-gradient(160deg, #FAF9F5 0%, #F3EDE6 35%, #E8DDD4 70%, #D9CFC6 100%);
+            padding: 100px 0 80px;
+            position: relative;
+            overflow: hidden;
+            border-bottom: 1px solid rgba(88, 72, 64, 0.1);
+        }
+
+        .hero-bg-blob {
+            position: absolute;
+            border-radius: 50%;
+            pointer-events: none;
+            filter: blur(80px);
+            opacity: 0.4;
+            z-index: 0;
+        }
+
+        .hero-bg-blob.b1 {
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(124, 34, 34, 0.15), transparent 70%);
+            top: -200px;
+            right: -100px;
+        }
+
+        .hero-grid-pattern {
+            position: absolute;
+            inset: 0;
+            background-image: linear-gradient(rgba(88, 72, 64, 0.02) 1px, transparent 1px), linear-gradient(90deg, rgba(88, 72, 64, 0.02) 1px, transparent 1px);
+            background-size: 60px 60px;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .hero-wrapper {
+            position: relative;
+            z-index: 1;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 40px;
+        }
+
+        .hero-content {
+            text-align: left;
+            flex: 1;
+            max-width: 480px;
+        }
+
+        .hero-title {
+            text-align: left;
+            font-size: 72px;
+            font-weight: 900;
+            color: #584840;
+            line-height: 1.02;
+            letter-spacing: -3px;
+            margin-bottom: 24px;
+        }
+
+        .hero-title .accent {
+            background: linear-gradient(135deg, #7C2222, #A23B3B);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-subtitle {
+            text-align: left;
+            font-size: 20px;
+            font-weight: 400;
+            color: #8B7364;
+            line-height: 1.6;
+            margin-bottom: 32px;
+            max-width: 460px;
+            margin-left: 0;
+        }
+
+        .cta-group {
+            justify-content: flex-start;
+        }
+
+        .hero-visual {
+            flex-shrink: 0;
+            position: relative;
+        }
+
+
+
+        /* App Listing Style Feature Sections */
+        .feature-showcase {
+            padding: 100px 0;
+            background-color: var(--cream);
+            overflow: hidden;
+        }
+
+        .feature-showcase:nth-child(even) {
+            background-color: var(--light-beige);
+        }
+
+        .showcase-wrapper {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 60px;
+        }
+
+        .showcase-wrapper.reverse {
+            flex-direction: row-reverse;
+        }
+
+        .showcase-content {
+            flex: 1;
+            max-width: 500px;
+        }
+
+        .showcase-wrapper.reverse .showcase-visual {
+            order: 1;
+        }
+
+        .showcase-content h2 {
+            font-size: 44px;
+            font-weight: 800;
+            color: var(--rich-brown);
+            line-height: 1.1;
+            letter-spacing: -1.0px;
+            margin-bottom: 24px;
+        }
+
+        .showcase-content p {
+            font-size: 18px;
+            color: var(--warm-tan);
+            line-height: 1.6;
+            margin-bottom: 32px;
+        }
+
+        .pill-list {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .pill {
+            background: rgba(255, 255, 255, 0.7);
+            border: 1px solid rgba(191, 156, 134, 0.2);
+            padding: 8px 16px;
+            border-radius: 100px;
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--rich-brown);
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.3s ease;
+            cursor: default;
+        }
+
+        .pill:hover {
+            transform: translateY(-2px) scale(1.02);
+            box-shadow: 0 4px 12px rgba(88, 72, 64, 0.1);
+            background: rgba(255, 255, 255, 0.9);
+        }
+
+        .showcase-visual img {
+            width: 100%;
+            border-radius: 20px;
+            box-shadow: 0 25px 50px rgba(88, 72, 64, 0.15);
+            border: 1px solid rgba(255, 255, 255, 0.6);
+        }
+
+        .showcase-wrapper.reverse .showcase-visual img {
+            width: 110%;
+            margin-left: -10%;
+        }
+
+        /* Pricing Section Override */
+        .pricing-section {
+            background: linear-gradient(to bottom, var(--cream), var(--light-beige));
+            padding: 100px 0;
+            text-align: center;
+        }
+
+        .price-card {
+            background: white;
+            border-radius: 24px;
+            padding: 48px;
+            max-width: 500px;
+            margin: 0 auto;
+            box-shadow: 0 20px 40px rgba(88, 72, 64, 0.1);
+            border: 1px solid rgba(191, 156, 134, 0.2);
+            position: relative;
+            overflow: hidden;
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .price-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 30px 60px rgba(88, 72, 64, 0.15);
+        }
+
+        .price-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 6px;
+            background: linear-gradient(90deg, #7C2222, #A23B3B);
+        }
+
+        .price-amount {
+            font-size: 72px;
+            font-weight: 900;
+            color: var(--rich-brown);
+            line-height: 1;
+            margin: 24px 0;
+            letter-spacing: -3px;
+        }
+
+        .price-amount span {
+            font-size: 24px;
+            color: var(--warm-tan);
+            font-weight: 500;
+            letter-spacing: 0;
+        }
+
+        .zero-commission-badge {
+            display: inline-block;
+            background: #27AE60;
+            color: white;
+            font-weight: 700;
+            font-size: 16px;
+            padding: 8px 20px;
+            border-radius: 100px;
+            margin-bottom: 24px;
+            box-shadow: 0 4px 12px rgba(39, 174, 96, 0.3);
+        }
+
+        @media (max-width: 1024px) {
+
+            .hero-wrapper,
+            .showcase-wrapper,
+            .showcase-wrapper.reverse {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .hero-content,
+            .hero-title,
+            .hero-subtitle {
+                text-align: center;
+            }
+
+            .cta-group {
+                justify-content: center;
+            }
+
+            .hero-visual img,
+            .showcase-wrapper.reverse .showcase-visual img {
+                width: 100%;
+                margin-left: 0;
+            }
+
+            .hero-visual {
+                transform: none;
+            }
+
+            .showcase-wrapper.reverse .showcase-content {
+                order: 1;
+            }
+
+            .showcase-wrapper.reverse .showcase-visual {
+                order: 2;
+            }
+        }
+    </style>
 </head>
 
 <body>
@@ -72,30 +319,26 @@
     <header class="nav-header" id="navigation">
         <nav class="nav-container">
             <div class="nav-logo">
-                <img src="assets/Logo.svg" alt="Quoffer Logo" height="40">
+                <img src="assets/app-listing/new-logo.png" alt="Quoffer Logo" height="40"
+                    style="mix-blend-mode: multiply;">
                 <span class="nav-logo-text">Quoffer</span>
             </div>
 
-            <!-- Desktop Navigation -->
+            <!-- Desktop Menu -->
             <div class="nav-links">
                 <a href="#features">Features</a>
-                <a href="#use-cases">Use Cases</a>
-                <a href="#faq">FAQ</a>
-                <a href="#cta" class="nav-cta">Install Free</a>
+                <a href="#how-it-works">How It Works</a>
+                <a href="#pricing">Pricing</a>
+                <a href="#pricing" class="btn btn-primary nav-cta">Install Free</a>
             </div>
 
-            <!-- Mobile Menu Button -->
+            <!-- Mobile Menu Toggle -->
             <button class="mobile-menu-btn" aria-label="Toggle menu" id="mobileMenuBtn">
-                <svg class="menu-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                    stroke-width="2">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round">
                     <line x1="3" y1="12" x2="21" y2="12"></line>
                     <line x1="3" y1="6" x2="21" y2="6"></line>
                     <line x1="3" y1="18" x2="21" y2="18"></line>
-                </svg>
-                <svg class="close-icon hidden" width="24" height="24" viewBox="0 0 24 24" fill="none"
-                    stroke="currentColor" stroke-width="2">
-                    <line x1="18" y1="6" x2="6" y2="18"></line>
-                    <line x1="6" y1="6" x2="18" y2="18"></line>
                 </svg>
             </button>
         </nav>
@@ -103,509 +346,385 @@
         <!-- Mobile Menu -->
         <div class="mobile-menu hidden" id="mobileMenu">
             <a href="#features">Features</a>
-            <a href="#use-cases">Use Cases</a>
-            <a href="#faq">FAQ</a>
-            <a href="#cta" class="mobile-cta">Install Free</a>
+            <a href="#how-it-works">How It Works</a>
+            <a href="#pricing">Pricing</a>
+            <a href="#pricing" class="mobile-cta">Install Free</a>
         </div>
     </header>
 
     <main>
         <!-- Hero Section -->
         <section class="hero-section">
+            <div class="hero-bg-blob b1"></div>
+            <div class="hero-grid-pattern"></div>
+
             <div class="container">
                 <div class="hero-wrapper">
                     <div class="hero-content">
-                        <div class="brand-explainer">Quoffer = Quote + Offer</div>
-                        <h1 class="hero-title">Fast Quotes & Offers.<br>Fair Deals.<br>No Commission.</h1>
-                        <p class="hero-subtitle">
-                            Handle both quote requests and price offers in one app.
-                            Auto-accept instantly, or review manually with one-click actions.
-                            Hide prices for B2B. Convert to Shopify Draft Orders.
-                            Built on trust, not fees.
-                        </p>
-                        <div class="cta-group">
-                            <a href="#cta" class="btn btn-primary">Install Free on Shopify</a>
-                            <a href="#how-it-works" class="btn btn-secondary">See How It Works</a>
+                        <div class="brand-explainer animate-fade-up">Shopify Make an Offer App</div>
+                        <h1 class="hero-title animate-fade-up delay-100">Make an<br>Offer.<br><span
+                                class="accent">No<br>Commission<br>Fees.</span></h1>
+                        <p class="hero-subtitle animate-fade-up delay-200">Let customers name their price. Auto-accept,
+                            counter, or review instantly. Flat monthly pricing means you keep 100% of your margins.</p>
+                        <div class="cta-group animate-fade-up delay-300">
+                            <a href="#pricing" class="btn btn-primary">Install for Free</a>
+                            <p class="trust-line">⭐️⭐️⭐️⭐️⭐️ 5.0 on Shopify App Store</p>
                         </div>
-                        <p class="trust-line">✓ Quotes & Offers in one app &nbsp;•&nbsp; ✓ Free forever plan
-                            &nbsp;•&nbsp; ✓ No commission ever</p>
-                        <p class="social-proof">The only app that handles both quote requests and price offers with zero
-                            commission fees</p>
                     </div>
                     <div class="hero-visual">
-                        <img src="assets/hero-workflow.png"
-                            alt="Quoffer handling both quote requests and price offers in one unified platform"
-                            loading="eager">
+                        <div class="native-visual"
+                            style="transform-origin: top left; transform: scale(0.65); margin-right: -301px; margin-bottom: -266px;">
+                            <div class="product-card">
+                                <div class="product-image">
+                                    <img src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=400&h=600&fit=crop&crop=center"
+                                        alt="Product" />
+                                </div>
+                                <div class="product-details">
+                                    <span class="product-category">Furniture</span>
+                                    <h2 class="product-name">Mid-Century<br>Modern Sofa</h2>
+                                    <div class="product-rating">
+                                        <span class="stars">★★★★★</span>
+                                        <span>(24)</span>
+                                    </div>
+                                    <div class="product-buttons">
+                                        <button class="ui-btn btn-outline">Add to Cart</button>
+                                        <button class="ui-btn btn-offer">Make an Offer</button>
+                                        <button class="ui-btn btn-buy">Buy now</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="offer-form">
+                                <div class="form-icon">🤝</div>
+                                <div class="form-title">Make an Offer</div>
+                                <div class="form-subtitle">Name your price</div>
+                                <div class="form-field">
+                                    <label>Name</label>
+                                    <input type="text" value="Sarah Johnson" readonly />
+                                </div>
+                                <div class="form-field">
+                                    <label>Your Offer</label>
+                                    <input type="text" value="$ 1,200" readonly />
+                                </div>
+                                <button class="form-submit">Submit Offer</button>
+                            </div>
+                            <div class="rules-card">
+                                <div class="rules-mini-title"><span class="icon">⚡</span> Auto-Rules</div>
+                                <div class="rule-mini-row">
+                                    <span class="rule-mini-label">Auto-Accept ≥ 80%</span>
+                                    <div class="toggle-mini">
+                                        <div class="toggle-mini-knob"></div>
+                                    </div>
+                                </div>
+                                <div class="rule-mini-row">
+                                    <span class="rule-mini-label">Auto-Decline &lt; 70%</span>
+                                    <div class="toggle-mini">
+                                        <div class="toggle-mini-knob"></div>
+                                    </div>
+                                </div>
+                                <div class="rule-mini-row">
+                                    <span class="rule-mini-label">Counter-Offer</span>
+                                    <div class="toggle-mini">
+                                        <div class="toggle-mini-knob"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="success-badge">
+                                <div class="success-check">✓</div>
+                                <div>
+                                    <div class="badge-title">Offer Accepted!</div>
+                                    <div class="badge-sub">Checkout link sent via email</div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Use Cases Section -->
-        <section class="use-cases-section" id="use-cases">
+        <!-- Feature 1: Auto Rules -->
+        <section class="feature-showcase" id="features">
             <div class="container">
-                <p class="section-label">Perfect For</p>
-                <h2 class="section-heading">Is Quoffer Right for Your Store?</h2>
-
-                <div class="use-cases-grid">
-                    <!-- Use Case 1: B2B & Wholesale -->
-                    <div class="use-case-card">
-                        <svg class="use-case-icon" width="40" height="40" viewBox="0 0 24 24" fill="none"
-                            stroke="currentColor" stroke-width="2">
-                            <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
-                            <polyline points="9 22 9 12 15 12 15 22"></polyline>
-                        </svg>
-                        <h3>B2B & Wholesale Sellers</h3>
-                        <p>Hide retail prices from logged-out visitors. Show "Request Quote" button to wholesale
-                            customers. Collect company details and volume requirements automatically.</p>
-                        <p class="use-case-example">"I sell industrial equipment. Wholesale buyers need custom pricing
-                            based on quantity and delivery location."</p>
-                        <ul class="use-case-list">
-                            <li>Hide prices by customer tag</li>
-                            <li>Collect tax ID and company info</li>
-                            <li>Volume-based pricing discussions</li>
-                        </ul>
+                <div class="showcase-wrapper">
+                    <div class="showcase-content">
+                        <h2>Auto-Accept &<br>Decline in Seconds.</h2>
+                        <p>Set price thresholds globally or per product. Offers above your minimum? Automatically
+                            accepted with a direct checkout link. Offers too low? Instantly declined without you lifting
+                            a finger.</p>
+                        <div class="pill-list">
+                            <div class="pill"><span>⚡</span> Instant</div>
+                            <div class="pill"><span>🎯</span> Custom Thresholds</div>
+                            <div class="pill"><span>🔄</span> Counter-Offer</div>
+                        </div>
                     </div>
-
-                    <!-- Use Case 2: Custom Products -->
-                    <div class="use-case-card">
-                        <svg class="use-case-icon" width="40" height="40" viewBox="0 0 24 24" fill="none"
-                            stroke="currentColor" stroke-width="2">
-                            <path
-                                d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z">
-                            </path>
-                        </svg>
-                        <h3>Custom & Made-to-Order</h3>
-                        <p>Every order is unique? Replace "Add to Cart" with "Request Quote". Collect specifications,
-                            measurements, and custom requirements through detailed forms.</p>
-                        <p class="use-case-example">"I create custom furniture. Each piece needs client measurements,
-                            wood type, and finish preferences."</p>
-                        <ul class="use-case-list">
-                            <li>Custom form fields (text, dropdowns, file upload)</li>
-                            <li>Specification collection</li>
-                            <li>Client requirement documentation</li>
-                        </ul>
-                    </div>
-
-                    <!-- Use Case 3: High-Value Items -->
-                    <div class="use-case-card">
-                        <svg class="use-case-icon" width="40" height="40" viewBox="0 0 24 24" fill="none"
-                            stroke="currentColor" stroke-width="2">
-                            <line x1="12" y1="1" x2="12" y2="23"></line>
-                            <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
-                        </svg>
-                        <h3>Premium & High-Ticket Items</h3>
-                        <p>Selling luxury goods or expensive equipment? Encourage personal consultation before purchase.
-                            Build trust with personalized service before closing the sale.</p>
-                        <p class="use-case-example">"I sell commercial kitchen equipment ($5K-50K). Buyers want to
-                            discuss installation and warranty before purchasing."</p>
-                        <ul class="use-case-list">
-                            <li>Professional quote presentation</li>
-                            <li>Personalized pricing discussions</li>
-                            <li>Trust-building customer touchpoint</li>
-                        </ul>
+                    <div class="showcase-visual">
+                        <div class="native-visual"
+                            style="transform-origin: top left; transform: scale(0.65); margin-right: -301px; margin-bottom: -266px;">
+                            <div class="rules-panel">
+                                <div class="rules-header">
+                                    <span class="rules-title">Auto-Rules</span>
+                                    <input class="rules-name-input" value="Make an Offer" readonly />
+                                </div>
+                                <div
+                                    style="font-size:12px;font-weight:600;color:#8B7364;text-transform:uppercase;letter-spacing:1px;margin-bottom:10px;">
+                                    Target Scope</div>
+                                <div class="scope-tabs">
+                                    <div class="scope-tab active">🏷️ All Products</div>
+                                    <div class="scope-tab">📁 Collections</div>
+                                    <div class="scope-tab">📌 Specific Items</div>
+                                </div>
+                                <div class="rule-section">
+                                    <div class="rule-row">
+                                        <span class="rule-label">Auto-Accept</span>
+                                    </div>
+                                    <div class="rule-desc">Offers above this percentage are approved instantly.</div>
+                                    <div class="threshold-label accept">ACCEPTANCE THRESHOLD</div>
+                                    <div class="threshold-value accept">80%</div>
+                                    <div class="threshold-bar accept-bar">
+                                        <div class="bar-thumb green" style="left: 75%;"></div>
+                                    </div>
+                                    <div class="bar-labels"><span>MIN: 0%</span><span>MAX: 100%</span></div>
+                                    <div class="rule-feedback accept">
+                                        <span class="feedback-icon">✅</span> Offers ≥ <strong>80%</strong> of product
+                                        price will be auto-accepted.
+                                    </div>
+                                </div>
+                                <div class="rule-section">
+                                    <div class="rule-row">
+                                        <span class="rule-label">Auto-Decline</span>
+                                    </div>
+                                    <div class="threshold-label decline">DECLINE THRESHOLD</div>
+                                    <div class="threshold-value decline">70%</div>
+                                    <div class="threshold-bar decline-bar">
+                                        <div class="bar-thumb red" style="right: 25%;"></div>
+                                    </div>
+                                    <div class="bar-labels"><span>MIN: 50%</span><span>MAX: 79%</span></div>
+                                    <div class="rule-feedback decline">
+                                        <span class="feedback-icon">❌</span> Offers < <strong>70%</strong> of product
+                                            price will be rejected automatically.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Features Grid -->
-        <section class="features-section" id="features">
+        <!-- Feature 2: Customer Feedback -->
+        <section class="feature-showcase">
             <div class="container">
-                <h2 class="section-heading">Everything You Need for Quotes & Offers</h2>
-                <p class="section-subheading">Two workflows. One platform. Complete control.</p>
-
-                <div class="features-grid">
-                    <!-- Feature 1 -->
-                    <div class="feature-card">
-                        <svg class="feature-icon" width="40" height="40" viewBox="0 0 24 24" fill="none"
-                            stroke="currentColor" stroke-width="2">
-                            <path d="M9 9h5v6H9z"></path>
-                            <path d="M3 5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5z"></path>
-                        </svg>
-                        <h3>Smart Quote Button</h3>
-                        <p class="benefit-headline">Show the right button to the right customers</p>
-                        <p>Replace "Add to Cart" with "Request Quote" based on who's shopping. Show prices to retail
-                            customers, hide them for wholesale. Set it once, it works automatically.</p>
-                        <p class="feature-details-label">Perfect for:</p>
-                        <ul class="feature-list">
-                            <li>B2B stores hiding retail prices</li>
-                            <li>Wholesale-only products</li>
-                            <li>Login-gated pricing</li>
-                            <li>Customer tag-based visibility</li>
-                        </ul>
-                        <span class="setup-badge">⏱ 2 minutes to configure</span>
+                <div class="showcase-wrapper reverse">
+                    <div class="showcase-content">
+                        <h2>Instant Customer<br>Responses.</h2>
+                        <p>Keep the buying momentum high. Customers receive instant on-page feedback when their offer is
+                            accepted, along with a magic link to complete their purchase immediately at their negotiated
+                            price.</p>
+                        <div class="pill-list">
+                            <div class="pill"><span>🔗</span> Magic Checkout Links</div>
+                            <div class="pill"><span>💬</span> On-Page Messages</div>
+                            <div class="pill"><span>🚀</span> High Conversion</div>
+                        </div>
                     </div>
-
-                    <!-- Feature 2 -->
-                    <div class="feature-card">
-                        <svg class="feature-icon" width="40" height="40" viewBox="0 0 24 24" fill="none"
-                            stroke="currentColor" stroke-width="2">
-                            <path
-                                d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24">
-                            </path>
-                            <line x1="1" y1="1" x2="23" y2="23"></line>
-                        </svg>
-                        <h3>Hide Prices Strategically</h3>
-                        <p class="benefit-headline">Protect wholesale margins and encourage inquiries</p>
-                        <p>Control exactly who sees prices on your storefront. Perfect for dual retail/wholesale stores
-                            or custom pricing negotiations. No theme editing required—works through Shopify's app embed
-                            system.</p>
-                        <p class="feature-details-label">Control visibility by:</p>
-                        <ul class="feature-list">
-                            <li>Customer tags (Wholesale, VIP, etc.)</li>
-                            <li>Login status (Guest vs. Logged-in)</li>
-                            <li>Product or collection</li>
-                            <li>Combined conditions (AND/OR logic)</li>
-                        </ul>
-                        <span class="setup-badge theme-safe">✓ Theme-safe installation</span>
-                    </div>
-
-                    <!-- Feature 3 -->
-                    <div class="feature-card">
-                        <svg class="feature-icon" width="40" height="40" viewBox="0 0 24 24" fill="none"
-                            stroke="currentColor" stroke-width="2">
-                            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
-                            <polyline points="14 2 14 8 20 8"></polyline>
-                            <line x1="16" y1="13" x2="8" y2="13"></line>
-                            <line x1="16" y1="17" x2="8" y2="17"></line>
-                            <polyline points="10 9 9 9 8 9"></polyline>
-                        </svg>
-                        <h3>Custom Quote Forms</h3>
-                        <p class="benefit-headline">Collect exactly the information your business needs</p>
-                        <p>Go beyond basic contact forms. Add unlimited custom fields: text inputs, dropdowns,
-                            checkboxes, file uploads. Match your brand colors. Auto-fill customer data for returning
-                            clients.</p>
-                        <p class="feature-details-label">Popular custom fields:</p>
-                        <ul class="feature-list">
-                            <li>Tax ID / VAT number</li>
-                            <li>Company name & size</li>
-                            <li>Delivery address & date</li>
-                            <li>Project details & specifications</li>
-                            <li>File uploads (blueprints, designs)</li>
-                            <li>Quantity & volume requirements</li>
-                        </ul>
-                        <span class="setup-badge">📎 Up to 5MB per file</span>
-                    </div>
-
-                    <!-- Feature 4 -->
-                    <div class="feature-card">
-                        <svg class="feature-icon" width="40" height="40" viewBox="0 0 24 24" fill="none"
-                            stroke="currentColor" stroke-width="2">
-                            <polyline points="22 12 16 12 14 15 10 15 8 12 2 12"></polyline>
-                            <path
-                                d="M5.45 5.11L2 12v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-6l-3.45-6.89A2 2 0 0 0 16.76 4H7.24a2 2 0 0 0-1.79 1.11z">
-                            </path>
-                        </svg>
-                        <h3>Centralized Quote Inbox</h3>
-                        <p class="benefit-headline">Respond faster, close more deals</p>
-                        <p>All quote requests in one organized dashboard. See what needs your attention at a glance.
-                            Filter by status, search by customer. Convert accepted quotes to Shopify Draft Orders with
-                            one click—no manual invoice creation.</p>
-                        <p class="feature-details-label">Workflow features:</p>
-                        <ul class="feature-list">
-                            <li>Smart status tracking (New → Won)</li>
-                            <li>Search by customer or product</li>
-                            <li>Status filters (Unread, In Review, etc.)</li>
-                            <li>One-click Draft Order creation</li>
-                            <li>Email notifications (optional)</li>
-                        </ul>
-                        <span class="setup-badge speed">⚡ 10-second quote-to-order conversion</span>
+                    <div class="showcase-visual">
+                        <div class="native-visual"
+                            style="transform-origin: top left; transform: scale(0.65); margin-right: -301px; margin-bottom: -266px;">
+                            <div class="response-card card-accepted">
+                                <div class="card-icon green">✅</div>
+                                <div class="card-title green">Offer Accepted!</div>
+                                <div class="card-text">Great news! Your offer of <strong
+                                        style="color:#584840;">$142</strong> for Vintage Chair has been accepted.</div>
+                                <div class="offer-summary">
+                                    <div class="offer-row"><span class="offer-label">Your Offer</span><span
+                                            class="offer-value highlight">$142.00</span></div>
+                                    <div class="offer-row"><span class="offer-label">Original Price</span><span
+                                            class="offer-value strike">$150.00</span></div>
+                                    <div class="offer-row"><span class="offer-label">You Save</span><span
+                                            class="offer-value" style="color:#27AE60;">$8.00</span></div>
+                                </div>
+                                <button class="card-btn green">Checkout Now</button>
+                            </div>
+                            <div class="response-card card-counter">
+                                <div class="card-icon orange">💰</div>
+                                <div class="card-title orange">Counter-Offer</div>
+                                <div class="card-text">We'd like to offer you a better price:</div>
+                                <div class="offer-summary" style="padding:10px;">
+                                    <div class="offer-row"><span class="offer-label">Counter</span><span
+                                            class="offer-value" style="color:#E67E22;font-size:18px;">$135.00</span>
+                                    </div>
+                                </div>
+                                <button class="card-btn orange">Accept Counter</button>
+                            </div>
+                            <div class="response-card card-review">
+                                <div class="card-icon blue">⏳</div>
+                                <div class="card-title blue">Under Review</div>
+                                <div class="card-text">We're reviewing your offer. You'll hear back within 4 hours.
+                                </div>
+                                <button class="card-btn">View Status</button>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- How It Works -->
+        <!-- Feature 3: Form Builder -->
+        <section class="feature-showcase">
+            <div class="container">
+                <div class="showcase-wrapper">
+                    <div class="showcase-content">
+                        <h2>Customize Your<br>Offer Button.</h2>
+                        <p>Match your store's brand perfectly. Style the button, modal, and success messages using our
+                            intuitive builder — complete with a real-time live preview. No coding required.</p>
+                        <div class="pill-list">
+                            <div class="pill"><span>🎨</span> Custom Colors</div>
+                            <div class="pill"><span>📐</span> Live Preview</div>
+                            <div class="pill"><span>✏️</span> No Code</div>
+                        </div>
+                    </div>
+                    <div class="showcase-visual">
+                        <div class="native-visual"
+                            style="transform-origin: top left; transform: scale(0.65); margin-right: -301px; margin-bottom: -266px;">
+                            <div class="builder-panel">
+                                <div class="panel-header">
+                                    <div class="panel-dot active"></div>
+                                    <span class="panel-mode">Make an Offer (Simple)</span>
+                                </div>
+                                <div class="panel-tabs">
+                                    <div class="panel-tab active">BUTTON</div>
+                                    <div class="panel-tab">MODAL</div>
+                                    <div class="panel-tab">SUCCESS</div>
+                                </div>
+                                <div class="panel-section">
+                                    <div class="panel-label">Button Text</div>
+                                    <input type="text" value="Make an Offer" readonly
+                                        style="width:100%;padding:8px 12px;border:1.5px solid #e0d8d0;border-radius:8px;font-size:13px;font-family:inherit;color:#333;background:#faf9f5;" />
+                                </div>
+                                <div class="panel-section">
+                                    <div class="panel-label">Colors</div>
+                                    <div class="input-row">
+                                        <div class="input-field">
+                                            <div class="field-label">Text</div>
+                                            <div class="color-swatch">
+                                                <div class="swatch white"></div><span class="color-hex">#FFFFFF</span>
+                                            </div>
+                                        </div>
+                                        <div class="input-field">
+                                            <div class="field-label">Background</div>
+                                            <div class="color-swatch">
+                                                <div class="swatch red"></div><span class="color-hex">#7C2222</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="panel-section">
+                                    <div class="panel-label">Font Size</div>
+                                    <div class="slider-row">
+                                        <div class="slider-bar">
+                                            <div class="slider-fill" style="width:40%"></div>
+                                            <div class="slider-thumb" style="left:38%"></div>
+                                        </div>
+                                        <div class="slider-labels"><span>12px</span><span>16px</span><span>24px</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="connector"></div>
+                            <div class="preview-card">
+                                <div class="preview-top">
+                                    <span class="preview-label">Live Preview</span>
+                                </div>
+                                <div class="preview-body">
+                                    <div class="preview-image">
+                                        <img src="https://images.unsplash.com/photo-1506439773649-6e0eb8cfb237?w=400&h=600&fit=crop&crop=center"
+                                            alt="Product" />
+                                    </div>
+                                    <div class="preview-info">
+                                        <div class="preview-name">Vintage Leather<br>Armchair</div>
+                                        <div class="preview-rating">★★★★★ (18)</div>
+                                        <div class="preview-buttons">
+                                            <button class="preview-btn outline">Add to Cart</button>
+                                            <button class="preview-btn offer">Make an Offer</button>
+                                            <button class="preview-btn buy">Buy now</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- How It Works Section -->
         <section class="how-it-works-section" id="how-it-works">
             <div class="container">
-                <h2 class="section-heading">How Quoffer Handles Quotes & Offers</h2>
-                <p class="section-subheading">Two workflows. One platform. Complete control.</p>
+                <p class="section-label">How It Works</p>
+                <h2 class="section-heading">3 Simple Steps to Your First Offer</h2>
 
                 <div class="steps-container">
                     <div class="step-card">
                         <div class="step-number">1</div>
-                        <h3>Install & Configure Automation</h3>
-                        <p>Install from Shopify App Store, activate the app embed. Set your auto-accept threshold (95%
-                            recommended). Configure quote button visibility. Customize your form.</p>
-                        <span class="time-badge">⏱ 5 minutes</span>
+                        <h3>Customer<br>Makes Offer</h3>
+                        <p>Shopper clicks your styled button and submits their desired price.</p>
                     </div>
 
                     <div class="step-connector"></div>
 
                     <div class="step-card">
                         <div class="step-number">2</div>
-                        <h3>Customers Submit Offers</h3>
-                        <p>Customers enter desired price and submit. Quoffer routes automatically: High offers (≥95%)
-                            auto-accept instantly. Low offers (&lt;70%) auto-reject. Middle offers (70-95%) need your
-                            review.</p>
-                        <span class="time-badge">⏱ &lt;10 seconds</span>
+                        <h3>Auto-Rules<br>Evaluate</h3>
+                        <p>Quoffer instantly accepts, declines, or sends to you for manual review.</p>
                     </div>
 
                     <div class="step-connector"></div>
 
                     <div class="step-card">
                         <div class="step-number">3</div>
-                        <h3>Review & Convert (When Needed)</h3>
-                        <p>For manual review quotes, check your dashboard. One-click actions: accept, discount, counter,
-                            or decline. Draft Order created instantly.</p>
-                        <span class="time-badge">⏱ 30 seconds</span>
+                        <h3>Checkout<br>Instantly</h3>
+                        <p>Customer gets a magic link to buy immediately at the agreed price.</p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Automation Explainer Section -->
-        <section class="automation-explainer-section">
+        <!-- Pricing Section -->
+        <section class="pricing-section" id="pricing">
             <div class="container">
-                <h2 class="section-heading">How Auto-Accept Works for Quotes & Offers</h2>
-                <p class="section-subheading">One simple rule. Works for both quote requests and price offers.</p>
+                <h2 class="section-heading">Completely Free.</h2>
+                <p class="section-subheading">During our early access period, Quoffer is totally free to use. Zero
+                    commission, zero monthly fees.</p>
 
-                <div class="threshold-diagram">
-                    <div class="threshold-product">Product Price: $150.00</div>
+                <div class="price-card">
+                    <div class="zero-commission-badge" style="background:var(--rich-brown);">0% Commission & No Fees
+                    </div>
+                    <h3>All Features Included</h3>
+                    <div class="price-amount">$0<span>/mo</span></div>
+                    <p style="color: var(--warm-tan); margin-bottom: 32px;">Totally free with current features.</p>
 
-                    <div class="zone-card green">
-                        <div class="zone-title">
-                            <span class="zone-icon">✓</span>
-                            <span>GREEN ZONE: ≥$142.50 (95%) - Auto-Accept</span>
-                        </div>
-                        <div class="zone-description">
-                            <ul>
-                                <li>Draft Order created instantly</li>
-                                <li>Checkout email sent to customer</li>
-                                <li>You do nothing</li>
-                            </ul>
-                        </div>
-                    </div>
+                    <ul class="feature-list" style="text-align: left; margin-bottom: 40px;">
+                        <li>Unlimited Make an Offer requests</li>
+                        <li>Automated Accept/Decline rules</li>
+                        <li>Customizable buttons and modals</li>
+                        <li>Magic checkout link generation</li>
+                        <li>Zero transaction fees from us</li>
+                    </ul>
 
-                    <div class="zone-card yellow">
-                        <div class="zone-title">
-                            <span class="zone-icon">⚙️</span>
-                            <span>YELLOW ZONE: $105-$142.49 (70-95%) - Manual Review</span>
-                        </div>
-                        <div class="zone-description">
-                            <ul>
-                                <li>Shows in your dashboard</li>
-                                <li>You review and decide</li>
-                                <li>One-click actions available</li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <div class="zone-card red">
-                        <div class="zone-title">
-                            <span class="zone-icon">✗</span>
-                            <span>RED ZONE: &lt;$105 (70%) - Auto-Reject</span>
-                        </div>
-                        <div class="zone-description">
-                            <ul>
-                                <li>Optional: Send counter-offer</li>
-                                <li>Customer can accept counter via email</li>
-                                <li>You do nothing</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="automation-examples">
-                    <div class="example-card">
-                        <div class="example-offer">Customer offers: $145</div>
-                        <div class="example-result">Result: Auto-accepted ✓</div>
-                        <div class="example-time">Time: &lt;10 seconds</div>
-                        <div class="example-action">You do: Nothing</div>
-                    </div>
-                    <div class="example-card">
-                        <div class="example-offer">Customer offers: $130</div>
-                        <div class="example-result">Result: Needs your review</div>
-                        <div class="example-time">Time: You decide</div>
-                        <div class="example-action">You do: Click action button</div>
-                    </div>
-                    <div class="example-card">
-                        <div class="example-offer">Customer offers: $100</div>
-                        <div class="example-result">Result: Auto-counter at $135</div>
-                        <div class="example-time">Time: &lt;10 seconds</div>
-                        <div class="example-action">You do: Nothing (unless they accept)</div>
-                    </div>
-                </div>
-
-                <div class="automation-cta-box">
-                    <h3>Want to try automation risk-free?</h3>
-                    <p>Start with automation OFF. Review every quote manually. Turn it ON later when you're comfortable.
-                        Or keep it OFF forever—Quoffer works both ways.</p>
-                    <a href="#cta" class="btn btn-primary">Install Free & Test</a>
+                    <a href="https://apps.shopify.com/draft-order-quote-manager" class="btn btn-primary"
+                        style="width: 100%; font-size: 18px; padding: 16px;">Install on Shopify</a>
                 </div>
             </div>
         </section>
 
-        <!-- Social Proof Section -->
-        <section class="social-proof-section">
-            <div class="container">
-                <h2 class="section-heading-small">Why Merchants Choose Quoffer</h2>
-
-                <div class="trust-badges-grid-two">
-                    <div class="trust-badge">
-                        <svg class="trust-icon" width="32" height="32" viewBox="0 0 24 24" fill="none"
-                            stroke="currentColor" stroke-width="2">
-                            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
-                            <path d="M9 12l2 2 4-4"></path>
-                        </svg>
-                        <h4>Theme-Safe Installation</h4>
-                        <p>Uses Shopify's native app embed system. No theme code modification required.</p>
-                    </div>
-
-                    <div class="trust-badge">
-                        <svg class="trust-icon" width="32" height="32" viewBox="0 0 24 24" fill="none"
-                            stroke="currentColor" stroke-width="2">
-                            <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
-                        </svg>
-                        <h4>Fast Support</h4>
-                        <p>Email support for all plans. Average response time: &lt;4 hours.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- FAQ Section -->
-        <section class="faq-section" id="faq">
-            <div class="container">
-                <h2 class="section-heading">Frequently Asked Questions</h2>
-
-                <div class="faq-grid">
-                    <div class="faq-item">
-                        <h3 class="faq-question">How is Quoffer different from other RFQ apps?</h3>
-                        <div class="faq-answer">
-                            <p>Quoffer is built on Shopify's native app embed system, which means it won't break your
-                                theme and can be enabled/disabled with one click. We focus on simplicity—our guided
-                                setup gets you live in under 10 minutes. Plus, we'll never charge commission fees on
-                                your sales.</p>
-                            <p>Unlike apps that inject code into your theme, Quoffer uses Shopify's official extension
-                                system for guaranteed compatibility and easy removal.</p>
-                        </div>
-                    </div>
-
-                    <div class="faq-item">
-                        <h3 class="faq-question">Will this slow down my store or break my theme?</h3>
-                        <div class="faq-answer">
-                            <p>No. Quoffer uses Shopify's native app embed system (the same technology used by Shopify's
-                                own features). This means:</p>
-                            <ul>
-                                <li>Zero impact on page load speed</li>
-                                <li>No theme code modifications</li>
-                                <li>100% compatible with any theme</li>
-                                <li>Works with theme updates</li>
-                                <li>Uninstalls cleanly (no leftover code)</li>
-                            </ul>
-                            <p>Many older RFQ apps use "Liquid injection" which can break themes. Quoffer is modern and
-                                theme-safe by design.</p>
-                        </div>
-                    </div>
-
-                    <div class="faq-item">
-                        <h3 class="faq-question">Can I hide prices for some customers but not others?</h3>
-                        <div class="faq-answer">
-                            <p>Yes! This is one of Quoffer's core features. You can control price visibility based on:
-                            </p>
-                            <ul>
-                                <li>Customer tags (e.g., "Wholesale", "VIP", "B2B")</li>
-                                <li>Login status (show to logged-in, hide from guests)</li>
-                                <li>Product/collection (hide specific products only)</li>
-                                <li>Any combination of the above</li>
-                            </ul>
-                            <p>Example: Show retail prices to regular shoppers, hide prices for tagged wholesale
-                                customers, and show "Request Quote" button instead.</p>
-                        </div>
-                    </div>
-
-                    <div class="faq-item">
-                        <h3 class="faq-question">Do customers need to log in to request a quote?</h3>
-                        <div class="faq-answer">
-                            <p>No, but you can require it if you want. By default, both guests and logged-in customers
-                                can request quotes. If you enable "Login required," only logged-in customers will see
-                                the quote button.</p>
-                            <p><strong>Benefits of requiring login:</strong></p>
-                            <ul>
-                                <li>Auto-fill customer data (saves them time)</li>
-                                <li>Track quote history per customer</li>
-                                <li>Better for B2B customer management</li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <div class="faq-item">
-                        <h3 class="faq-question">How do quotes become actual orders?</h3>
-                        <div class="faq-answer">
-                            <p>Simple three-click process:</p>
-                            <ol>
-                                <li>You review the quote in your dashboard</li>
-                                <li>Click "Create Draft Order" (pre-filled with customer + product details)</li>
-                                <li>Customer receives Shopify checkout link via email</li>
-                            </ol>
-                            <p>The Draft Order appears in your Shopify admin just like any other order. When the
-                                customer pays, it converts to a regular order and enters your fulfillment workflow. No
-                                manual invoice creation, no discount codes to manage.</p>
-                        </div>
-                    </div>
-
-                    <div class="faq-item">
-                        <h3 class="faq-question">Can I customize the form fields?</h3>
-                        <div class="faq-answer">
-                            <p>Yes, unlimited customization. Add any fields you need:</p>
-                            <ul>
-                                <li>Text inputs (Tax ID, Company Name, etc.)</li>
-                                <li>Text areas (Project details, Special requirements)</li>
-                                <li>Dropdowns (Delivery options, Product variations)</li>
-                                <li>Checkboxes (Terms acceptance, Feature selections)</li>
-                                <li>File uploads (Blueprints, Design files, Specifications)</li>
-                            </ul>
-                            <p>Each field can be required or optional, hidden based on conditions, pre-filled for
-                                logged-in customers, and styled to match your brand.</p>
-                        </div>
-                    </div>
-
-                    <div class="faq-item">
-                        <h3 class="faq-question">Is there a contract or monthly commitment?</h3>
-                        <div class="faq-answer">
-                            <p><strong>No contracts. No commitments.</strong></p>
-                            <ul>
-                                <li>Start with our free plan (no credit card required)</li>
-                                <li>Upgrade when you're ready</li>
-                                <li>Downgrade anytime</li>
-                                <li>Cancel anytime</li>
-                            </ul>
-                            <p>We believe in earning your business through a great product, not locking you in with
-                                contracts.</p>
-                        </div>
-                    </div>
-
-                    <div class="faq-item">
-                        <h3 class="faq-question">What kind of support do you offer?</h3>
-                        <div class="faq-answer">
-                            <p>All plans include email support with average response time under 4 hours during business
-                                hours.</p>
-                            <p>We also provide:</p>
-                            <ul>
-                                <li>Detailed documentation and video tutorials</li>
-                                <li>Interactive setup guide (built into the app)</li>
-                                <li>Free onboarding call (15 minutes, optional)</li>
-                            </ul>
-                            <p>Higher-tier plans include priority support and live chat access.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Final CTA -->
+        <!-- Final CTA Section -->
         <section class="final-cta-section" id="cta">
-            <div class="container">
-                <h2>Ready to Automate Your Quotes?</h2>
-                <p>Start with automation OFF. Test with manual review. Turn it ON when ready. Or keep it OFF
-                    forever—your choice.</p>
-                <a href="https://apps.shopify.com/quoffer" target="_blank" rel="noopener" class="btn btn-light">Install
-                    Free on Shopify</a>
-                <p class="trust-line">✓ Free plan forever ✓ All features included ✓ Auto-accept optional ✓ No credit
-                    card</p>
-                <p class="install-note">Save $50-200/month with flat pricing—no commission ever</p>
+            <div class="container animate-fade-up">
+                <h2>Ready to increase your conversion rate?</h2>
+                <p>Join Shopify merchants capturing sales that would have otherwise bounced.</p>
+                <div style="display: flex; justify-content: center;">
+                    <a href="https://apps.shopify.com/draft-order-quote-manager" class="btn btn-light">Start Your Free
+                        Trial</a>
+                </div>
+                <p class="trust-line">No credit card required for installation</p>
             </div>
         </section>
     </main>
@@ -613,38 +732,42 @@
     <!-- Footer -->
     <footer class="footer">
         <div class="container">
-            <div class="footer-grid-enhanced">
+            <div class="footer-grid">
                 <div class="footer-col">
-                    <img src="assets/Logo.svg" alt="Quoffer Logo" height="32" class="footer-logo">
+                    <div class="nav-logo footer-logo">
+                        <img src="assets/app-listing/new-logo.png" alt="Quoffer Logo" height="40"
+                            style="mix-blend-mode: multiply;">
+                        <span class="nav-logo-text">Quoffer</span>
+                    </div>
+                    <p class="footer-tagline">The #1 Make an Offer app for Shopify.<br>Capture more sales without
+                        sacrificing your public pricing.</p>
                 </div>
-
+                <!-- Other footer columns remain the same -->
                 <div class="footer-col">
                     <h4>Product</h4>
                     <ul>
                         <li><a href="#features">Features</a></li>
-                        <li><a href="#use-cases">Use Cases</a></li>
-                        <li><a href="#how-it-works">How It Works</a></li>
-                        <li><a href="#faq">FAQ</a></li>
+                        <li><a href="#how-it-works">How it Works</a></li>
+                        <li><a href="#pricing">Pricing</a></li>
+                        <li><a href="https://apps.shopify.com/draft-order-quote-manager">Shopify App Store</a></li>
                     </ul>
                 </div>
-
                 <div class="footer-col">
-                    <h4>Legal</h4>
+                    <h4>Company</h4>
                     <ul>
+                        <li><a href="mailto:support@quoffer.com">Contact Support</a></li>
                         <li><a href="privacy-policy.html">Privacy Policy</a></li>
-                        <li><a href="mailto:hello@quoffer.com">Email Us</a></li>
+                        <li><a href="#">Terms of Service</a></li>
                     </ul>
                 </div>
             </div>
-
             <div class="footer-bottom">
-                <p>&copy; 2026 Quoffer. All rights reserved.</p>
-                <p class="footer-love">Made with 🤝 for Shopify merchants</p>
+                <p>&copy; 2024 Quoffer. All rights reserved.</p>
             </div>
         </div>
     </footer>
 
-    <!-- Scripts -->
+    <!-- Mobile Menu Script -->
     <script src="script.js"></script>
 </body>
 

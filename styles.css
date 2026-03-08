@@ -65,8 +65,11 @@ body {
 .nav-header {
     position: sticky;
     top: 0;
-    background-color: var(--cream);
-    border-bottom: 1px solid var(--soft-taupe);
+    background-color: rgba(250, 249, 245, 0.85);
+    /* Cream with transparency */
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(191, 156, 134, 0.2);
     height: 80px;
     z-index: 1000;
     transition: var(--transition);
@@ -85,17 +88,18 @@ body {
 .nav-logo {
     display: flex;
     align-items: center;
-    gap: 12px;
+    gap: 8px;
 }
 
 .nav-logo img {
-    height: 40px;
+    height: 48px;
     width: auto;
+    border-radius: 8px;
 }
 
 .nav-logo-text {
     font-size: 24px;
-    font-weight: 600;
+    font-weight: 800;
     color: var(--rich-brown);
     letter-spacing: -0.01em;
 }
@@ -127,8 +131,9 @@ body {
 }
 
 .nav-cta:hover {
-    transform: scale(1.02);
-    box-shadow: 0 4px 12px rgba(88, 72, 64, 0.2);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 16px rgba(88, 72, 64, 0.15);
+    background-color: #4a3c35;
 }
 
 /* Mobile Menu Button */
@@ -203,22 +208,19 @@ body {
     line-height: 1.2;
     letter-spacing: -0.02em;
     margin-bottom: 20px;
-    text-align: center;
 }
 
 .hero-subtitle {
     font-size: 18px;
     color: var(--black);
     line-height: 1.6;
-    max-width: 900px;
-    margin: 0 auto 24px;
-    text-align: center;
+    max-width: 600px;
+    margin-bottom: 32px;
 }
 
 .cta-group {
     display: flex;
     gap: 12px;
-    justify-content: center;
     align-items: center;
     flex-wrap: wrap;
     margin-bottom: 16px;
@@ -227,7 +229,6 @@ body {
 .trust-line {
     font-size: 14px;
     color: var(--warm-tan);
-    text-align: center;
 }
 
 .hero-wrapper {
@@ -240,6 +241,7 @@ body {
 .hero-visual {
     margin: 0;
     max-width: 100%;
+    margin-left: 40px;
 }
 
 .hero-visual img {
@@ -269,8 +271,9 @@ body {
 }
 
 .btn-primary:hover {
-    transform: scale(1.02);
-    box-shadow: 0 6px 20px rgba(88, 72, 64, 0.3);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(88, 72, 64, 0.2);
+    background-color: #4a3c35;
 }
 
 .btn-secondary {
@@ -282,6 +285,7 @@ body {
 .btn-secondary:hover {
     border-color: var(--warm-tan);
     background-color: rgba(191, 156, 134, 0.05);
+    transform: translateY(-2px);
 }
 
 .btn-light {
@@ -767,15 +771,46 @@ button:focus {
 /* Brand Explainer (Hero) */
 .brand-explainer {
     display: inline-block;
-    background-color: var(--light-beige);
-    color: var(--warm-tan);
-    font-size: 12px;
-    font-weight: 500;
+    background-color: rgba(191, 156, 134, 0.15);
+    color: var(--rich-brown);
+    font-size: 13px;
+    font-weight: 600;
     letter-spacing: 0.5px;
-    padding: 4px 12px;
-    border-radius: 16px;
-    margin-bottom: 16px;
+    padding: 6px 14px;
+    border-radius: 100px;
+    margin-bottom: 20px;
     text-align: center;
+    border: 1px solid rgba(191, 156, 134, 0.3);
+}
+
+/* Animations */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.animate-fade-up {
+    animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    opacity: 0;
+}
+
+.delay-100 {
+    animation-delay: 100ms;
+}
+
+.delay-200 {
+    animation-delay: 200ms;
+}
+
+.delay-300 {
+    animation-delay: 300ms;
 }
 
 /* Social Proof */

@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Quoffer App Listing - Image 2: Form Builder</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html,
+        body {
+            width: 1600px;
+            height: 900px;
+            overflow: hidden;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: linear-gradient(160deg, #FAF9F5 0%, #F3EDE6 35%, #E8DDD4 70%, #D9CFC6 100%);
+            display: flex;
+            align-items: center;
+            padding: 0 90px;
+            position: relative;
+        }
+
+        .bg-blob {
+            position: absolute;
+            border-radius: 50%;
+            pointer-events: none;
+            filter: blur(80px);
+            opacity: 0.4;
+        }
+
+        .bg-blob.b1 {
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(124, 34, 34, 0.15), transparent 70%);
+            top: -150px;
+            left: 300px;
+        }
+
+        .bg-blob.b2 {
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(162, 120, 100, 0.25), transparent 70%);
+            bottom: -100px;
+            right: 200px;
+        }
+
+        .grid-pattern {
+            position: absolute;
+            inset: 0;
+            background-image: linear-gradient(rgba(88, 72, 64, 0.02) 1px, transparent 1px), linear-gradient(90deg, rgba(88, 72, 64, 0.02) 1px, transparent 1px);
+            background-size: 60px 60px;
+            pointer-events: none;
+        }
+
+        .content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+            gap: 50px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .left {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 28px;
+            max-width: 520px;
+        }
+
+        .logo-top img {
+            height: 72px;
+            width: auto;
+        }
+
+        .headline {
+            font-size: 68px;
+            font-weight: 900;
+            color: #584840;
+            line-height: 1.02;
+            letter-spacing: -3px;
+        }
+
+        .headline .accent {
+            background: linear-gradient(135deg, #7C2222, #A23B3B);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .subtext {
+            font-size: 20px;
+            font-weight: 400;
+            color: #8B7364;
+            line-height: 1.6;
+            max-width: 440px;
+        }
+
+        .features-row {
+            display: flex;
+            gap: 16px;
+            margin-top: 4px;
+            flex-wrap: wrap;
+        }
+
+        .feature-pill {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(191, 156, 134, 0.2);
+            padding: 8px 16px;
+            border-radius: 100px;
+            font-size: 13px;
+            font-weight: 600;
+            color: #584840;
+        }
+
+        .feature-pill .icon {
+            font-size: 15px;
+        }
+
+        /* RIGHT: Form Builder UI recreation */
+        .right {
+            flex-shrink: 0;
+            width: 860px;
+            height: 700px;
+            position: relative;
+        }
+
+        .builder-panel {
+            position: absolute;
+            top: 20px;
+            left: 0;
+            width: 340px;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            border-radius: 20px;
+            box-shadow: 0 25px 60px rgba(88, 72, 64, 0.15), 0 6px 20px rgba(88, 72, 64, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.6);
+            padding: 28px 24px;
+            transform: rotate(-1.5deg);
+            z-index: 2;
+        }
+
+        .panel-header {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 20px;
+            padding-bottom: 14px;
+            border-bottom: 1px solid rgba(191, 156, 134, 0.15);
+        }
+
+        .panel-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+        }
+
+        .panel-dot.active {
+            background: #7C2222;
+        }
+
+        .panel-dot.inactive {
+            background: #d0d0d0;
+        }
+
+        .panel-mode {
+            font-size: 14px;
+            font-weight: 700;
+            color: #584840;
+        }
+
+        .panel-tabs {
+            display: flex;
+            gap: 0;
+            margin-bottom: 20px;
+            border-radius: 10px;
+            overflow: hidden;
+            border: 1px solid #e0d8d0;
+        }
+
+        .panel-tab {
+            flex: 1;
+            padding: 10px 0;
+            text-align: center;
+            font-size: 12px;
+            font-weight: 600;
+            color: #8B7364;
+            background: #faf9f5;
+        }
+
+        .panel-tab.active {
+            background: #584840;
+            color: #fff;
+        }
+
+        .panel-section {
+            margin-bottom: 16px;
+        }
+
+        .panel-label {
+            font-size: 11px;
+            font-weight: 700;
+            color: #584840;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+            margin-bottom: 8px;
+        }
+
+        .input-row {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 12px;
+        }
+
+        .input-field {
+            flex: 1;
+        }
+
+        .input-field .field-label {
+            font-size: 10px;
+            color: #8B7364;
+            margin-bottom: 4px;
+            font-weight: 500;
+        }
+
+        .input-field input {
+            width: 100%;
+            padding: 8px 12px;
+            border: 1.5px solid #e0d8d0;
+            border-radius: 8px;
+            font-size: 13px;
+            font-family: inherit;
+            color: #333;
+            background: #faf9f5;
+        }
+
+        .color-swatch {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .swatch {
+            width: 28px;
+            height: 28px;
+            border-radius: 6px;
+            border: 2px solid rgba(0, 0, 0, 0.1);
+        }
+
+        .swatch.red {
+            background: #7C2222;
+        }
+
+        .swatch.white {
+            background: #ffffff;
+        }
+
+        .color-hex {
+            font-size: 12px;
+            color: #8B7364;
+            font-family: monospace;
+        }
+
+        .slider-row {
+            margin-bottom: 12px;
+        }
+
+        .slider-bar {
+            width: 100%;
+            height: 6px;
+            background: #e8e0d8;
+            border-radius: 3px;
+            position: relative;
+            margin-top: 6px;
+        }
+
+        .slider-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #584840, #7C2222);
+            border-radius: 3px;
+        }
+
+        .slider-thumb {
+            position: absolute;
+            top: -5px;
+            width: 16px;
+            height: 16px;
+            background: #584840;
+            border-radius: 50%;
+            border: 2px solid #fff;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+        }
+
+        .slider-labels {
+            display: flex;
+            justify-content: space-between;
+            font-size: 10px;
+            color: #A27864;
+            margin-top: 4px;
+        }
+
+        /* Product preview card */
+        .preview-card {
+            position: absolute;
+            top: 40px;
+            right: 0;
+            width: 460px;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            border-radius: 20px;
+            box-shadow: 0 25px 60px rgba(88, 72, 64, 0.15);
+            border: 1px solid rgba(255, 255, 255, 0.6);
+            overflow: hidden;
+            transform: rotate(1deg);
+            z-index: 1;
+        }
+
+        .preview-top {
+            padding: 12px 20px;
+            border-bottom: 1px solid rgba(191, 156, 134, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .preview-label {
+            font-size: 12px;
+            font-weight: 600;
+            color: #A27864;
+        }
+
+        .preview-toggle {
+            display: flex;
+            gap: 8px;
+        }
+
+        .toggle-icon {
+            width: 28px;
+            height: 28px;
+            border-radius: 6px;
+            border: 1px solid #e0d8d0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+        }
+
+        .toggle-icon.active {
+            background: #584840;
+            border-color: #584840;
+            color: #fff;
+        }
+
+        .preview-body {
+            display: flex;
+        }
+
+        .preview-image {
+            width: 200px;
+            min-height: 300px;
+            overflow: hidden;
+        }
+
+        .preview-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .preview-info {
+            flex: 1;
+            padding: 24px 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        .preview-name {
+            font-size: 17px;
+            font-weight: 700;
+            color: #1a1a1a;
+        }
+
+        .preview-rating {
+            font-size: 11px;
+            color: #D4A853;
+            margin-bottom: 12px;
+        }
+
+        .preview-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            margin-top: auto;
+        }
+
+        .preview-btn {
+            padding: 11px 16px;
+            border-radius: 8px;
+            font-size: 13px;
+            font-weight: 600;
+            text-align: center;
+            border: none;
+            font-family: inherit;
+        }
+
+        .preview-btn.outline {
+            background: #fff;
+            color: #1a1a1a;
+            border: 1.5px solid #d0d0d0;
+        }
+
+        .preview-btn.offer {
+            background: #7C2222;
+            color: #fff;
+            box-shadow: 0 3px 10px rgba(124, 34, 34, 0.2);
+        }
+
+        .preview-btn.buy {
+            background: #1a1a1a;
+            color: #fff;
+        }
+
+        /* Connector arrow between panels */
+        .connector {
+            position: absolute;
+            top: 200px;
+            left: 330px;
+            width: 60px;
+            height: 2px;
+            background: rgba(162, 120, 100, 0.25);
+            z-index: 5;
+        }
+
+        .connector::after {
+            content: '→';
+            position: absolute;
+            right: -6px;
+            top: -10px;
+            font-size: 16px;
+            color: #A27864;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="bg-blob b1"></div>
+    <div class="bg-blob b2"></div>
+    <div class="grid-pattern"></div>
+
+    <div class="content">
+        <div class="left">
+            <!-- Quoffer Logo -->
+            <div class="logo-container" style="margin-bottom: -10px;">
+                <img src="new-logo.png" alt="Quoffer Logo"
+                    style="width: 192px; height: 192px; mix-blend-mode: multiply; border-radius: 12px;">
+            </div>
+            <h1 class="headline"><span class="accent">Customize</span><br>Your Offer<br>Button.</h1>
+            <p class="subtext">Match your store's brand perfectly. Style the button, modal, and success messages — all
+                with live preview.</p>
+            <div class="features-row">
+                <div class="feature-pill"><span class="icon">🎨</span> Custom Colors</div>
+                <div class="feature-pill"><span class="icon">📐</span> Live Preview</div>
+                <div class="feature-pill"><span class="icon">✏️</span> No Code</div>
+            </div>
+        </div>
+
+        <div class="right">
+            <!-- Builder Settings Panel -->
+            <div class="builder-panel">
+                <div class="panel-header">
+                    <div class="panel-dot active"></div>
+                    <span class="panel-mode">Make an Offer (Simple)</span>
+                </div>
+                <div class="panel-tabs">
+                    <div class="panel-tab active">BUTTON</div>
+                    <div class="panel-tab">MODAL</div>
+                    <div class="panel-tab">SUCCESS</div>
+                </div>
+
+                <div class="panel-section">
+                    <div class="panel-label">Button Text</div>
+                    <input type="text" value="Make an Offer" readonly
+                        style="width:100%;padding:8px 12px;border:1.5px solid #e0d8d0;border-radius:8px;font-size:13px;font-family:inherit;color:#333;background:#faf9f5;" />
+                </div>
+
+                <div class="panel-section">
+                    <div class="panel-label">Colors</div>
+                    <div class="input-row">
+                        <div class="input-field">
+                            <div class="field-label">Text</div>
+                            <div class="color-swatch">
+                                <div class="swatch white"></div><span class="color-hex">#FFFFFF</span>
+                            </div>
+                        </div>
+                        <div class="input-field">
+                            <div class="field-label">Background</div>
+                            <div class="color-swatch">
+                                <div class="swatch red"></div><span class="color-hex">#7C2222</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="panel-section">
+                    <div class="panel-label">Font Size</div>
+                    <div class="slider-row">
+                        <div class="slider-bar">
+                            <div class="slider-fill" style="width:40%"></div>
+                            <div class="slider-thumb" style="left:38%"></div>
+                        </div>
+                        <div class="slider-labels"><span>12px</span><span>16px</span><span>24px</span></div>
+                    </div>
+                </div>
+
+                <div class="panel-section">
+                    <div class="panel-label">Corner Radius</div>
+                    <div class="slider-row">
+                        <div class="slider-bar">
+                            <div class="slider-fill" style="width:15%"></div>
+                            <div class="slider-thumb" style="left:13%"></div>
+                        </div>
+                        <div class="slider-labels"><span>0px</span><span>4px</span><span>20px</span></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Connector -->
+            <div class="connector"></div>
+
+            <!-- Live Preview -->
+            <div class="preview-card">
+                <div class="preview-top">
+                    <span class="preview-label">Live Preview</span>
+                </div>
+                <div class="preview-body">
+                    <div class="preview-image">
+                        <img src="https://images.unsplash.com/photo-1506439773649-6e0eb8cfb237?w=400&h=600&fit=crop&crop=center"
+                            alt="Product" />
+                    </div>
+                    <div class="preview-info">
+                        <div class="preview-name">Vintage Leather<br>Armchair</div>
+                        <div class="preview-rating">★★★★★ (18)</div>
+                        <div class="preview-buttons">
+                            <button class="preview-btn outline">Add to Cart</button>
+                            <button class="preview-btn offer">Make an Offer</button>
+                            <button class="preview-btn buy">Buy now</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
